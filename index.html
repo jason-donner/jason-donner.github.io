@@ -4,47 +4,41 @@ title: Jason Donner | Data Viz Portfolio
 ---
 
 <style>
-    /* 1. The Main Page Background (Darker framing color) */
-    body {
-        background-color: #dbe2e8 !important; /* Slightly darker gray-blue to make the card pop */
+    /* 1. HEADER OVERRIDE: Deep Ocean Gradient */
+    .page-header {
+        background-image: linear-gradient(to right, #2c3e50, #4ca1af) !important;
+        background-color: #2c3e50 !important;
     }
 
-    /* 2. The Content Card (Now with COLOR!) */
+    /* 2. Main Page Background */
+    body {
+        background-color: #dbe2e8 !important; /* Soft gray-blue */
+    }
+
+    /* 3. The Content Card */
     .main-content, .container { 
         max-width: 1400px !important; 
         margin: 40px auto !important; 
         padding: 40px !important; 
-        
-        /* CHANGE THIS HEX CODE TO SWAP COLORS */
-        background-color: #deffea !important; /* pastel mint */
-        
+        background-color: #f4f7f9 !important; /* Subtle Tech Blue */
         box-shadow: 0px 4px 20px rgba(0,0,0,0.1); 
         border-radius: 10px; 
     }
-
-    /* CUSTOM HEADER GRADIENT: Cyan to Green */
-    .page-header {
-        background-image: linear-gradient(120deg, #00b09b 0%, #96c93d 100%) !important;
-        background-color: #00b09b !important; /* Fallback */
-    }
     
-    /* Update Links and Highlights to match */
-    .about-me h1, .social-links a, a {
-        color: #00b09b !important;
-    }
-    
-    /* 3. About Me Section Styling (White to stand out against the colored card) */
+    /* 4. About Me Section */
     .about-me {
         text-align: center;
         padding: 30px;
-        background-color: #ffffff; /*white for contrast */
+        background-color: #ffffff; 
         border-radius: 8px;
         margin-bottom: 40px;
-        border: 1px solid #e1e4e8; /* Subtle border */
+        border: 1px solid #e1e4e8; 
     }
+    
+    /* 5. UPDATED ACCENT COLORS: Matching the Dark Teal Header */
     .about-me h1 {
         margin-bottom: 10px;
-        color: #159957; 
+        color: #2c3e50; /* Matches Header */
     }
     .about-me p {
         font-size: 1.1em;
@@ -55,7 +49,7 @@ title: Jason Donner | Data Viz Portfolio
         margin: 0 10px;
         font-weight: bold;
         text-decoration: none;
-        color: #159957;
+        color: #2980b9; /* A slightly brighter blue for links so they stand out */
     }
 </style>
 
