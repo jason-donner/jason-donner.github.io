@@ -5,55 +5,60 @@ title: Jason Donner | Data Viz Portfolio
 
 <style>
     /* =========================================
-       CUSTOM "DARK GLASS" THEME FOR SLATE
+       CUSTOM "DARK GLASS" THEME (v2.0 - Fixed Alignment)
        ========================================= */
 
     /* 1. Global Reset & Typography */
     body {
-        background-color: #1e1e1e !important; /* Matches dashboard dark mode */
+        background-color: #1e1e1e !important; /* Dark Dashboard Background */
         color: #e0e0e0 !important; /* Soft white text */
         font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
-    /* 2. The Header (Overriding Slate Defaults) */
+    /* 2. The Header (Slate Override) */
     header {
         background-color: #151515 !important;
-        background-image: none !important; /* Remove default texture */
-        border-bottom: 2px solid #00E5FF; /* CYAN ACCENT BORDER */
+        background-image: none !important; 
+        border-bottom: 2px solid #00E5FF; /* Cyan Accent */
         padding: 40px 0 !important;
+        text-align: center !important; /* Keep Site Title Centered */
     }
     header h1 {
         color: #ffffff !important;
-        text-shadow: 0px 0px 10px rgba(0, 229, 255, 0.5); /* Subtle glow */
+        text-shadow: 0px 0px 10px rgba(0, 229, 255, 0.5);
     }
     header h2 {
-        color: #00E5FF !important; /* CYAN Subtitle */
+        color: #00E5FF !important;
         font-weight: 300;
     }
 
-    /* 3. The "Dark Glass" Container */
+    /* 3. The Main Container (FIX: Force Left Alignment for Content) */
     .main-content {
         max-width: 1400px !important;
         margin: 0 auto !important;
         padding: 40px !important;
+        text-align: left !important; /* Forces lists/paragraphs to the left */
     }
 
-    /* 4. Section Styling (About Me & Project) */
+    /* 4. Glass Panel Styling */
     .glass-panel {
         background: rgba(255, 255, 255, 0.05); /* 5% White Transparency */
-        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+        border: 1px solid rgba(255, 255, 255, 0.1); 
         border-radius: 8px;
         padding: 30px;
         margin-bottom: 40px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
-        backdrop-filter: blur(5px); /* Blurs background behind it */
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); 
+        backdrop-filter: blur(5px);
     }
 
-    /* 5. Typography Accents */
-    h1, h2, h3 {
-        color: #00E5FF !important; /* ALL HEADERS ARE CYAN */
+    /* 5. HEADERS (FIX: Keep Titles Centered) */
+    .glass-panel h1, .glass-panel h2, h1, h2 {
+        color: #00E5FF !important;
         margin-top: 0;
+        text-align: center !important; /* Overrides the container's left align */
     }
+
+    /* 6. Typography Details */
     a {
         color: #00E5FF !important;
         text-decoration: none;
@@ -63,8 +68,6 @@ title: Jason Donner | Data Viz Portfolio
         color: #ffffff !important;
         text-shadow: 0 0 8px #00E5FF;
     }
-    
-    /* 6. List Styling */
     ul li {
         margin-bottom: 10px;
         color: #cccccc;
@@ -73,10 +76,15 @@ title: Jason Donner | Data Viz Portfolio
         color: #ffffff; /* Bold text is pure white */
     }
     
-    /* 7. Button/Link Styling in Bio */
+    /* 7. About Me Section (FIX: Keep Centered) */
+    .about-me-container {
+        text-align: center !important; 
+    }
+
+    /* 8. Social Links (FIX: Keep Centered) */
     .social-links {
+        text-align: center !important;
         margin-top: 20px;
-        font-size: 1.1em;
     }
     .social-links a {
         border: 1px solid #00E5FF;
@@ -84,16 +92,16 @@ title: Jason Donner | Data Viz Portfolio
         border-radius: 4px;
         margin: 0 5px;
         transition: all 0.3s ease;
+        display: inline-block;
     }
     .social-links a:hover {
         background-color: #00E5FF;
         color: #000000 !important; /* Black text on Cyan background */
         box-shadow: 0 0 15px #00E5FF;
     }
-
 </style>
 
-<div class="glass-panel" style="text-align: center;">
+<div class="glass-panel about-me-container">   
     <h1 style="color: white !important;">Jason Donner</h1>
     <p style="color: #00E5FF; font-size: 1.2em; margin-bottom: 20px;">
         <strong>Data Analyst | Tableau Developer | Storyteller</strong>
