@@ -4,60 +4,93 @@ title: Jason Donner | Data Viz Portfolio
 ---
 
 <style>
-    /* 1. The Main Page Background */
+    /* =========================================
+       CUSTOM "DARK GLASS" THEME FOR SLATE
+       ========================================= */
+
+    /* 1. Global Reset & Typography */
     body {
-        background-color: #dbe2e8 !important; 
+        background-color: #1e1e1e !important; /* Matches dashboard dark mode */
+        color: #e0e0e0 !important; /* Soft white text */
+        font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
-    /* 2. The Content Card (UPDATED ALIGNMENT) */
-    .main-content, .container { 
-        max-width: 1400px !important; 
-        margin: 40px auto !important; 
-        padding: 40px !important; 
-        
-        background-color: #f4f7f9 !important; 
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.1); 
-        border-radius: 10px; 
-        
-        /* FIX: Force standard text to align Left for readability */
-        text-align: left !important; 
+    /* 2. The Header (Overriding Slate Defaults) */
+    header {
+        background-color: #151515 !important;
+        background-image: none !important; /* Remove default texture */
+        border-bottom: 2px solid #00E5FF; /* CYAN ACCENT BORDER */
+        padding: 40px 0 !important;
+    }
+    header h1 {
+        color: #ffffff !important;
+        text-shadow: 0px 0px 10px rgba(0, 229, 255, 0.5); /* Subtle glow */
+    }
+    header h2 {
+        color: #00E5FF !important; /* CYAN Subtitle */
+        font-weight: 300;
     }
 
-    /* 3. Titles: Keep them Centered for a clean look */
-    .main-content h1, .main-content h2 {
-        text-align: center !important;
-        margin-top: 30px;
-        margin-bottom: 20px;
+    /* 3. The "Dark Glass" Container */
+    .main-content {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 40px !important;
+    }
+
+    /* 4. Section Styling (About Me & Project) */
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.05); /* 5% White Transparency */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
+        backdrop-filter: blur(5px); /* Blurs background behind it */
+    }
+
+    /* 5. Typography Accents */
+    h1, h2, h3 {
+        color: #00E5FF !important; /* ALL HEADERS ARE CYAN */
+        margin-top: 0;
+    }
+    a {
+        color: #00E5FF !important;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        color: #ffffff !important;
+        text-shadow: 0 0 8px #00E5FF;
     }
     
-    /* 4. About Me Section (Keep Centered) */
-    .about-me {
-        text-align: center !important; /* Forces Bio to stay centered */
-        padding: 30px;
-        background-color: #ffffff; 
-        border-radius: 8px;
-        margin-bottom: 40px;
-        border: 1px solid #e1e4e8; 
-    }
-    .about-me h1 {
+    /* 6. List Styling */
+    ul li {
         margin-bottom: 10px;
-        color: #159957; 
-        text-align: center !important;
+        color: #cccccc;
     }
-    .about-me p {
-        font-size: 1.1em;
-        line-height: 1.6;
-        color: #4a5359;
+    strong {
+        color: #ffffff; /* Bold text is pure white */
     }
+    
+    /* 7. Button/Link Styling in Bio */
     .social-links {
-        text-align: center; /* Ensures buttons stay centered */
+        margin-top: 20px;
+        font-size: 1.1em;
     }
     .social-links a {
-        margin: 0 10px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #159957;
+        border: 1px solid #00E5FF;
+        padding: 8px 15px;
+        border-radius: 4px;
+        margin: 0 5px;
+        transition: all 0.3s ease;
     }
+    .social-links a:hover {
+        background-color: #00E5FF;
+        color: #000000 !important; /* Black text on Cyan background */
+        box-shadow: 0 0 15px #00E5FF;
+    }
+
 </style>
 
 <div class="glass-panel" style="text-align: center;">
