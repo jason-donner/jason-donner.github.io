@@ -4,26 +4,34 @@ title: Jason Donner | Data Viz Portfolio
 ---
 
 <style>
-    /* Force the page container to be 1400px wide and centered */
+    /* 1. The Main Page Background (Soft Professional Gray) */
+    body {
+        background-color: #eef2f5 !important; /* Soft gray-blue background */
+    }
+
+    /* 2. The Content Card (White box that holds your portfolio) */
     .main-content, .container { 
         max-width: 1400px !important; 
-        margin-left: auto !important; 
-        margin-right: auto !important; 
-        padding-left: 20px !important; 
-        padding-right: 20px !important;
+        margin: 40px auto !important; /* Centers the card vertically and horizontally */
+        padding: 40px !important; /* Adds breathing room inside the card */
+        
+        background-color: #ffffff !important; /* Pure white background for content */
+        box-shadow: 0px 4px 20px rgba(0,0,0,0.08); /* A subtle shadow to make it pop */
+        border-radius: 10px; /* Rounded corners */
     }
     
-    /* Styles for the About Me Section */
+    /* 3. About Me Section Styling (Updated to blend with the white card) */
     .about-me {
         text-align: center;
-        padding: 40px 20px;
-        background-color: #f9f9f9; /* Light gray background to separate it */
+        padding: 30px;
+        background-color: #f8f9fa; /* Slightly darker gray to stand out from the white card */
         border-radius: 8px;
         margin-bottom: 40px;
+        border: 1px solid #ebedef;
     }
     .about-me h1 {
         margin-bottom: 10px;
-        color: #159957; /* Matches the Cayman Green/Blue theme */
+        color: #159957; 
     }
     .about-me p {
         font-size: 1.1em;
@@ -34,6 +42,7 @@ title: Jason Donner | Data Viz Portfolio
         margin: 0 10px;
         font-weight: bold;
         text-decoration: none;
+        color: #159957;
     }
 </style>
 
