@@ -4,101 +4,149 @@ title: Jason Donner | Data Viz Portfolio
 ---
 
 <style>
-    /* 1. HEADER OVERRIDE: Deep Ocean Gradient */
-    .page-header {
-        background-image: linear-gradient(to right, #2c3e50, #4ca1af) !important;
-        background-color: #2c3e50 !important;
-    }
+    /* =========================================
+       CUSTOM "DARK GLASS" THEME FOR SLATE
+       ========================================= */
 
-    /* 2. Main Page Background */
+    /* 1. Global Reset & Typography */
     body {
-        background-color: #dbe2e8 !important; /* Soft gray-blue */
+        background-color: #1e1e1e !important; /* Matches dashboard dark mode */
+        color: #e0e0e0 !important; /* Soft white text */
+        font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
-    /* 3. The Content Card */
-    .main-content, .container { 
-        max-width: 1400px !important; 
-        margin: 40px auto !important; 
-        padding: 40px !important; 
-        background-color: #f4f7f9 !important; /* Subtle Tech Blue */
-        box-shadow: 0px 4px 20px rgba(0,0,0,0.1); 
-        border-radius: 10px; 
+    /* 2. The Header (Overriding Slate Defaults) */
+    header {
+        background-color: #151515 !important;
+        background-image: none !important; /* Remove default texture */
+        border-bottom: 2px solid #00E5FF; /* CYAN ACCENT BORDER */
+        padding: 40px 0 !important;
     }
-    
-    /* 4. About Me Section */
-    .about-me {
-        text-align: center;
-        padding: 30px;
-        background-color: #ffffff; 
+    header h1 {
+        color: #ffffff !important;
+        text-shadow: 0px 0px 10px rgba(0, 229, 255, 0.5); /* Subtle glow */
+    }
+    header h2 {
+        color: #00E5FF !important; /* CYAN Subtitle */
+        font-weight: 300;
+    }
+
+    /* 3. The "Dark Glass" Container */
+    .main-content {
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 40px !important;
+    }
+
+    /* 4. Section Styling (About Me & Project) */
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.05); /* 5% White Transparency */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
         border-radius: 8px;
+        padding: 30px;
         margin-bottom: 40px;
-        border: 1px solid #e1e4e8; 
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Deep shadow */
+        backdrop-filter: blur(5px); /* Blurs background behind it */
+    }
+
+    /* 5. Typography Accents */
+    h1, h2, h3 {
+        color: #00E5FF !important; /* ALL HEADERS ARE CYAN */
+        margin-top: 0;
+    }
+    a {
+        color: #00E5FF !important;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        color: #ffffff !important;
+        text-shadow: 0 0 8px #00E5FF;
     }
     
-    /* 5. UPDATED ACCENT COLORS: Matching the Dark Teal Header */
-    .about-me h1 {
+    /* 6. List Styling */
+    ul li {
         margin-bottom: 10px;
-        color: #2c3e50; /* Matches Header */
+        color: #cccccc;
     }
-    .about-me p {
+    strong {
+        color: #ffffff; /* Bold text is pure white */
+    }
+    
+    /* 7. Button/Link Styling in Bio */
+    .social-links {
+        margin-top: 20px;
         font-size: 1.1em;
-        line-height: 1.6;
-        color: #4a5359;
     }
     .social-links a {
-        margin: 0 10px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #2980b9; /* A slightly brighter blue for links so they stand out */
+        border: 1px solid #00E5FF;
+        padding: 8px 15px;
+        border-radius: 4px;
+        margin: 0 5px;
+        transition: all 0.3s ease;
     }
+    .social-links a:hover {
+        background-color: #00E5FF;
+        color: #000000 !important; /* Black text on Cyan background */
+        box-shadow: 0 0 15px #00E5FF;
+    }
+
 </style>
 
-<div class="about-me">
-    <h1>Jason Donner</h1>
-    <p><strong>Data Analyst | Tableau Developer | Storyteller</strong></p>
+<div class="glass-panel" style="text-align: center;">
+    <h1 style="color: white !important;">Jason Donner</h1>
+    <p style="color: #00E5FF; font-size: 1.2em; margin-bottom: 20px;">
+        <strong>Data Analyst | Tableau Developer | Storyteller</strong>
+    </p>
     
-    <p style="max-width: 800px; margin: 0 auto 20px auto;">
+    <p style="max-width: 800px; margin: 0 auto 20px auto; line-height: 1.6;">
         Welcome to my portfolio! I specialize in transforming complex datasets into intuitive, interactive dashboards that guide informed business decisions. 
         My focus is on user-centric design and technical efficiency. Check out my featured project below.
     </p>
 
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/jason-donner/">LinkedIn</a> • 
-        <a href="mailto:jasdonner@gmail.com">Email</a> • 
-        <a href="https://docs.google.com/document/d/1KF9EkDAffedvivnQq3dyEU26i6Rkelus9R5otL9jQ7c/edit?usp=drive_link">Resume</a>
+  <div class="social-links">
+        <a href="https://www.linkedin.com/in/jason-donner/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:jasdonner@gmail.com">Email</a>
+        <a href="https://docs.google.com/document/d/1KF9EkDAffedvivnQq3dyEU26i6Rkelus9R5otL9jQ7c/edit?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume</a>
     </div>
 </div>
 
-<hr style="border: 0; border-top: 1px solid #eaeaea; margin-bottom: 40px;">
+<div class="glass-panel">
+    <h1>Personal Data Project: Advanced Drill-Down Map</h1>
+    <p>This dashboard solves the "Data Overlap" problem in geographic visualizations. By utilizing custom <strong>Set Actions</strong> and <strong>Dark Mode UI principles</strong>, I created a drill-down experience that maintains context while revealing granular venue details.</p>
+</div>
 
-<h1>Personal Data Project: Advanced Drill-Down Map</h1>
-
-<p>This project solved a common data visualization challenge by creating a dynamic, two-level map interaction. I used custom Set Actions and calculated fields to allow users to drill-down from the high-level City summary to specific Venue details seamlessly.</p>
-
-<hr>
-<div style="display: flex; justify-content: center; width: 100%; margin: 20px auto;">
+<div style="display: flex; justify-content: center; width: 100%; margin: 40px auto;">
 {% raw %}
 <div class='tableauPlaceholder' id='viz1765865891819' style='position: relative'><noscript><a href='#'><img alt='2025 CONCERT HISTORY ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2025ConcertDashboard&#47;2025ConcertDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='2025ConcertDashboard&#47;2025ConcertDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;20&#47;2025ConcertDashboard&#47;2025ConcertDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765865891819');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height='700px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height='700px';} else { vizElement.style.width='100%';vizElement.style.height='700px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 {% endraw %}
 </div>
-<hr>
 
-<h2>Technical Deep Dive & Skills Showcase</h2>
+<div class="glass-panel">
+    <h2>Technical Deep Dive</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+        <div style="flex: 1; min-width: 300px;">
+            <h3>Advanced Interactivity</h3>
+            <ul>
+                <li>Implemented a custom <strong>Set Action</strong> to drive the map's Drill-Down Logic.</li>
+                <li>Used the dynamic <strong>IF/ELSE field</strong> (<code>[Smart Location]</code>) to swap between geographic levels.</li>
+                <li>Developed a <strong>dynamic tooltip</strong> to display either City Summaries or Venue Details.</li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+            <h3>Design and Efficiency</h3>
+            <ul>
+                <li>Applied a high-contrast <strong>Dark Mode</strong> theme with custom accents.</li>
+                <li>Used a <strong>Highlight Action</strong> to stabilize text opacity on the BANs.</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-<h3>Advanced Interactivity</h3>
-<ul>
-    <li>Implemented a custom <strong>Set Action</strong> to drive the map's Drill-Down Logic.</li>
-    <li>Used the dynamic <strong>IF/ELSE field</strong> (<code>[Smart Location]</code>) to swap between geographic levels based on the active set.</li>
-    <li>Developed a <strong>dynamic tooltip</strong> to display either City Summaries or Venue Details based on the explosion level.</li>
-</ul>
+<div style="text-align: center; margin-top: 50px;">
+    <p>View the live Tableau Public workbook <a href="https://public.tableau.com/views/2025ConcertDashboard/2025ConcertDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">here</a>.</p>
+</div>
 
-<h3>Design and Efficiency</h3>
-<ul>
-    <li>Applied a high-contrast <strong>Dark Mode</strong> theme with custom accents.</li>
-    <li>Used a <strong>Highlight Action</strong> to stabilize text opacity on the BANs, preventing KPI numbers from dimming upon map selection.</li>
-</ul>
-
-<p>View the live Tableau Public workbook <a href="https://public.tableau.com/views/2025ConcertDashboard/2025ConcertDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">here</a>.</p>
 <script>
     window.onload = function() {
         window.scrollTo(0, 0);
