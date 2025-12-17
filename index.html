@@ -60,21 +60,22 @@ title: Jason Donner | Senior Data Visualization Specialist
     /* 5. Hero Section */
     .hero-section {
         text-align: center;
-        padding: 60px 0;
+        /* UPDATED: Reduced padding to pull bio up */
+        padding: 10px 0 40px 0; 
         border-bottom: 1px solid rgba(255,255,255,0.1);
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
     .hero-tagline {
         font-size: 1.3rem;
         color: var(--text-muted);
         max-width: 750px;
-        margin: 20px auto;
+        margin: 0 auto 20px auto; /* Reduced top margin */
         line-height: 1.8;
     }
 
     /* 6. Social Links */
     .social-links {
-        margin-top: 30px;
+        margin-top: 20px;
         display: flex;
         justify-content: center;
         gap: 20px;
@@ -123,8 +124,7 @@ title: Jason Donner | Senior Data Visualization Specialist
     </header>
 
     <div class="glass-panel">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2>2025 Concert Tracker</h2>
+        <div style="text-align: center; margin-bottom: 20px;">
             <p style="color: var(--text-muted); font-size: 0.9rem;">
                 STACK: <strong style="color: var(--accent-purple);">TABLEAU</strong> + <strong style="color: var(--accent-purple);">MAPBOX</strong> + <strong style="color: var(--accent-purple);">SET ACTIONS</strong>
             </p>
