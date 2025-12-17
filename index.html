@@ -26,19 +26,27 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin: 0;
     }
 
-    /* 2. THE HEADER FIX (STEALTH MODE) */
-    header.site-header, .site-header {
-        background-image: none !important;
-        background-color: #121212 !important; /* Matches Body Background exactly */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle separator */
+    /* 2. THE HEADER FIX (The "Nuclear" Selector) */
+    /* We target ALL potential header classes to override the Cayman Theme defaults */
+    header, .site-header, .page-header, #header_wrap {
+        background-color: #121212 !important; /* Solid Dark Background */
+        background-image: none !important;    /* Kills the Gradient */
+        background: #121212 !important;       /* Double-tap to be sure */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; 
         padding: 20px 0 !important;
+        text-align: center !important;
+        width: 100% !important;
     }
     
-    /* Force Title to be White */
-    .site-title, .site-title:visited {
+    /* Force Title to be White & Clean */
+    .project-name, .project-tagline, .site-title, .site-title:visited {
         color: #FFFFFF !important;
-        text-shadow: none !important; /* Clean text, no glow */
+        text-shadow: none !important; 
+        font-weight: 700 !important;
     }
+    
+    /* Hide the default buttons usually found in Cayman headers */
+    .btn { display: none !important; }
 
     /* 3. Typography */
     h1, h2, h3 {
@@ -153,7 +161,7 @@ title: Jason Donner | Senior Data Visualization Specialist
                 var divElement = document.getElementById('viz1765935906851');                    
                 var vizElement = divElement.getElementsByTagName('object')[0];                    
                 
-                // FORCE DESKTOP SIZE (Prevents black void)
+                // FORCE DESKTOP SIZE
                 vizElement.style.width='1366px';
                 vizElement.style.height='795px'; 
                 
