@@ -31,6 +31,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         background-image: none !important;
         background-color: #151515 !important;
         border-bottom: 2px solid var(--accent-cyan) !important;
+        padding: 15px 0 !important; /* UPDATED: Aggressively reduced header height */
     }
     
     .site-title, .site-title:visited {
@@ -53,10 +54,11 @@ title: Jason Donner | Senior Data Visualization Specialist
 
     /* 4. Layout Containers */
     .main-content {
-        /* UPDATED: Increased to 1450px to fit the 1366px Dashboard + Padding */
-        max-width: 1450px; 
+        /* UPDATED: Changed to 95% of Viewport Width (Fluid) to prevent cutting off */
+        max-width: 95vw !important; 
+        width: 95vw !important;
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 10px 0 40px 0; /* UPDATED: Removed Top Padding entirely */
     }
 
     /* 5. Glass Panels */
@@ -64,7 +66,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         background: var(--card-bg);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 12px;
-        padding: 40px;
+        padding: 25px; /* UPDATED: Reduced padding to give Dashboard more room */
         margin-bottom: 60px;
         backdrop-filter: blur(10px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -73,7 +75,7 @@ title: Jason Donner | Senior Data Visualization Specialist
     /* 6. Hero Section */
     .hero-section {
         text-align: center;
-        padding: 10px 0 40px 0; 
+        padding: 0 0 30px 0; /* UPDATED: Zero top padding */
         border-bottom: 1px solid rgba(255,255,255,0.1);
         margin-bottom: 40px;
     }
