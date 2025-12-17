@@ -26,13 +26,13 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin: 0;
     }
 
-    /* 2. HEADER GRADIENT UPDATE (The "Pro" Look) */
+    /* 2. HEADER GRADIENT FIX (Visible Dark Teal) */
     header.site-header, .site-header {
         background-image: none !important;
-        /* The Gradient: Subtle top-down fade from Charcoal to Black */
-        background: linear-gradient(180deg, #2a2a2a 0%, #121212 100%) !important;
+        /* A visible gradient: Dark Slate/Teal fading to Black */
+        background: linear-gradient(180deg, #102025 0%, #121212 100%) !important;
         border-bottom: 2px solid var(--accent-cyan) !important;
-        padding: 15px 0 !important;
+        padding: 20px 0 !important;
     }
     
     .site-title, .site-title:visited {
@@ -55,8 +55,8 @@ title: Jason Donner | Senior Data Visualization Specialist
 
     /* 4. Layout Containers */
     .main-content {
-        /* Fixed width to perfectly hug the 1366px Dashboard */
-        max-width: 1460px !important; 
+        /* FIXED WIDTH: 1420px is perfect for 1366px Dashboard + Padding */
+        max-width: 1420px !important; 
         margin: 0 auto;
         padding: 10px 20px 40px 20px;
     }
@@ -70,13 +70,16 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin-bottom: 60px;
         backdrop-filter: blur(10px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        /* Ensure text doesn't get cut off */
+        overflow: visible; 
+        height: auto;
     }
 
     /* 6. Hero Section */
     .hero-section {
         text-align: center;
         padding: 0 0 30px 0;
-        border-bottom: none; 
+        border-bottom: none; /* No grey bar */
         margin-bottom: 20px; 
     }
     .hero-tagline {
@@ -108,16 +111,18 @@ title: Jason Donner | Senior Data Visualization Specialist
         box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     }
 
-    /* 8. Technical Grid */
+    /* 8. Technical Grid (Fixed: Switched to Flexbox) */
     .tech-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-wrap: wrap;
         gap: 50px;
         margin-top: 40px;
         text-align: left;
     }
-    @media (max-width: 768px) {
-        .tech-grid { grid-template-columns: 1fr; }
+    /* Forces columns to be side-by-side on desktop, stacked on mobile */
+    .tech-column {
+        flex: 1;
+        min-width: 300px;
     }
     
     ul li { margin-bottom: 15px; color: #CCCCCC; }
@@ -144,12 +149,37 @@ title: Jason Donner | Senior Data Visualization Specialist
             </p>
         </div>
 
-        <div style="width: 100%; margin: 0 auto 40px auto; min-height: 700px; overflow-x: auto; display: flex; justify-content: center;">
+        <div style="width: 100%; margin: 0 auto 40px auto; min-height: 700px; display: flex; justify-content: center;">
+            
             <div class='tableauPlaceholder' id='viz1765935906851' style='position: relative'><noscript><a href='#'><img alt='2025 CONCERT HISTORY ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GCD3WMKM8' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765935906851');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        
         </div>
 
         <div class="tech-grid">
-            <div>
+            <div class="tech-column">
                 <h3 style="color: var(--accent-cyan);">The Design Challenge</h3>
                 <p>
-                    Personal data is intimate, but often small in volume. With only 30 data points for my 2025 concert tour, a standard map felt sparse and utilitarian. My challenge was to transform a simple list of events into an immersive experience; something that felt substantial and worth exploring,
+                    Personal data is intimate, but often small in volume. With only 30 data points for my 2025 concert tour, a standard map felt sparse and utilitarian. My challenge was to transform a simple list of events into an immersive experience; something that felt substantial and worth exploring, rather than just a scattering of dots.
+                </p>
+            </div>
+            <div class="tech-column">
+                <h3 style="color: var(--accent-cyan);">The Technical Architecture</h3>
+                <p>
+                    I treated this dashboard like a software product, not a report. I used <strong>Mapbox Studio</strong> to build a custom 'Dark Glass' layer, removing 90% of the map detail to create a high-contrast stage for the data. For interactivity, I used <strong>Tableau Set Actions</strong> to create a fluid drill-down: clicking a single venue instantly isolates that specific memory in the side panel, creating a responsive, app-like feel without clunky filters.
+                </p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://public.tableau.com/views/2025ConcertDashboard/2025ConcertDashboard" target="_blank" 
+               style="border-bottom: 1px solid var(--accent-cyan); padding-bottom: 5px; font-weight: bold;">
+               View Full Interaction on Tableau Public &rarr;
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    window.onload = function() { window.scrollTo(0, 0); };
+</script>
