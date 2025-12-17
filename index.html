@@ -131,10 +131,9 @@ title: Jason Donner | Senior Data Visualization Specialist
         transform: translateY(-2px);
     }
 
-    /* 8. About Section Styles */
+    /* 8. About Section Styles - FIXED TO USE FLEXBOX */
     .about-grid {
-        display: grid;
-        grid-template-columns: 200px 1fr;
+        display: flex;
         gap: 40px;
         align-items: start;
         margin-bottom: 30px;
@@ -143,6 +142,7 @@ title: Jason Donner | Senior Data Visualization Specialist
     .profile-image {
         width: 200px;
         height: 200px;
+        flex-shrink: 0;
         border-radius: 12px;
         border: 2px solid var(--accent-cyan);
         box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
@@ -150,6 +150,7 @@ title: Jason Donner | Senior Data Visualization Specialist
     }
     
     .about-content {
+        flex: 1;
         text-align: left;
     }
     
@@ -259,10 +260,10 @@ title: Jason Donner | Senior Data Visualization Specialist
         display: none !important;
     }
 
-    /* 13. Responsive Design */
+    /* 13. Responsive Design - FIXED FOR FLEXBOX */
     @media (max-width: 768px) {
         .about-grid {
-            grid-template-columns: 1fr;
+            flex-direction: column;
             text-align: center;
         }
         
@@ -302,7 +303,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         </div>
     </header>
 
-    <!-- NEW: About Section -->
+    <!-- About Section with YOUR edits -->
     <div class="glass-panel">
         <h2>About Me</h2>
         <div class="about-grid">
@@ -387,7 +388,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         </div>
     </div>
 
-    <!-- NEW: Call to Action -->
+    <!-- Call to Action -->
     <div class="cta-section">
         <h2>Let's Build Something Together</h2>
         <p>Looking for a data visualization specialist who can turn your data into compelling stories?</p>
@@ -396,7 +397,7 @@ title: Jason Donner | Senior Data Visualization Specialist
 
 </div>
 
-<!-- NEW: Custom Footer -->
+<!-- Custom Footer -->
 <footer class="custom-footer">
     <p><strong>Jason Donner</strong> • Senior Data Visualization Specialist</p>
     <p>© 2025 • Built with care using Jekyll and GitHub Pages</p>
