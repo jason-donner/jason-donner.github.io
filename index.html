@@ -5,7 +5,7 @@ title: Jason Donner | Senior Data Visualization Specialist
 
 <style>
     /* =========================================
-       THE "DARK GLASS" THEME - FINAL ARCHITECTURE
+       THE "DARK GLASS" THEME - ENHANCED VERSION
        ========================================= */
 
     :root {
@@ -19,10 +19,9 @@ title: Jason Donner | Senior Data Visualization Specialist
 
     /* 1. Global Reset & AMBIENT GLOW BACKGROUND */
     body {
-        /* The "Spotlight" Effect: Deep Teal glow at top, fading to black */
         background: radial-gradient(circle at 50% 0%, #1a2629 0%, #121212 70%) !important;
-        background-color: #121212 !important; /* Fallback */
-        background-attachment: fixed !important; /* Keeps the glow centered when scrolling */
+        background-color: #121212 !important;
+        background-attachment: fixed !important;
         
         color: var(--text-main) !important;
         font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -32,27 +31,22 @@ title: Jason Donner | Senior Data Visualization Specialist
 
     /* 2. HEADER FIX (Transparent + No Border) */
     header, .site-header, .page-header, #header_wrap {
-        background-color: transparent !important; /* Let the body glow show through */
+        background-color: transparent !important;
         background-image: none !important;
         background: transparent !important;
-        
-        /* REMOVED THE BORDER TO HIDE THE GREY BAR */
         border-bottom: none !important; 
         box-shadow: none !important;
-        
         padding: 20px 0 !important;
         text-align: center !important;
         width: 100% !important;
     }
     
-    /* Force Title to be White & Clean */
     .project-name, .project-tagline, .site-title, .site-title:visited {
         color: #FFFFFF !important;
         text-shadow: none !important; 
         font-weight: 700 !important;
     }
     
-    /* Hide the default buttons usually found in Cayman headers */
     .btn { display: none !important; }
 
     /* 3. Typography */
@@ -62,8 +56,19 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin-top: 0;
     }
     h1 { font-size: 2.5rem; letter-spacing: -1px; }
-    h2 { font-size: 1.8rem; color: var(--accent-cyan); }
-    h3 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px;}
+    h2 { 
+        font-size: 1.8rem; 
+        color: var(--accent-cyan); 
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    h3 { 
+        font-size: 1.1rem; 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+        color: var(--text-muted); 
+        margin-bottom: 10px;
+    }
     
     a { color: var(--accent-cyan); text-decoration: none; transition: 0.3s; }
     a:hover { color: #FFFFFF; text-shadow: 0 0 10px var(--accent-cyan); }
@@ -80,7 +85,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         background: var(--card-bg);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 12px;
-        padding: 30px; 
+        padding: 40px; 
         margin-bottom: 60px;
         backdrop-filter: blur(10px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -92,13 +97,13 @@ title: Jason Donner | Senior Data Visualization Specialist
         text-align: center;
         padding: 0 0 30px 0;
         border-bottom: none; 
-        margin-bottom: 20px; 
+        margin-bottom: 40px; 
     }
     .hero-tagline {
         font-size: 1.3rem;
         color: var(--text-muted);
         max-width: 750px;
-        margin: 0 auto 20px auto; 
+        margin: 0 auto 30px auto; 
         line-height: 1.8;
     }
 
@@ -108,6 +113,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         display: flex;
         justify-content: center;
         gap: 20px;
+        flex-wrap: wrap;
     }
     .social-btn {
         border: 1px solid var(--accent-cyan);
@@ -116,14 +122,61 @@ title: Jason Donner | Senior Data Visualization Specialist
         font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 1px;
+        transition: all 0.3s ease;
     }
     .social-btn:hover {
         background: var(--accent-cyan);
         color: #000 !important;
         box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        transform: translateY(-2px);
     }
 
-    /* 8. Technical Grid (Flexbox) */
+    /* 8. About Section Styles */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 40px;
+        align-items: start;
+        margin-bottom: 30px;
+    }
+    
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 12px;
+        border: 2px solid var(--accent-cyan);
+        box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+        object-fit: cover;
+    }
+    
+    .about-content {
+        text-align: left;
+    }
+    
+    .about-content p {
+        margin-bottom: 20px;
+        line-height: 1.8;
+        color: var(--text-main);
+    }
+    
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .skill-tag {
+        background: rgba(0, 229, 255, 0.1);
+        border: 1px solid var(--accent-cyan);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: var(--accent-cyan);
+        letter-spacing: 0.5px;
+    }
+
+    /* 9. Technical Grid (Flexbox) */
     .tech-grid {
         display: flex;
         flex-wrap: wrap;
@@ -138,6 +191,102 @@ title: Jason Donner | Senior Data Visualization Specialist
     
     ul li { margin-bottom: 15px; color: #CCCCCC; }
     strong { color: #FFFFFF; font-weight: 600; }
+
+    /* 10. Section Divider */
+    .section-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--accent-cyan), transparent);
+        margin: 60px 0;
+        opacity: 0.3;
+    }
+
+    /* 11. CTA Section */
+    .cta-section {
+        text-align: center;
+        padding: 40px;
+        background: rgba(0, 229, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        margin-top: 60px;
+    }
+    
+    .cta-section h2 {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+    
+    .cta-section p {
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background: var(--accent-cyan);
+        color: #000 !important;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 40px rgba(0, 229, 255, 0.5);
+    }
+
+    /* 12. Custom Footer */
+    .custom-footer {
+        text-align: center;
+        padding: 40px 20px;
+        margin-top: 80px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+    
+    .custom-footer p {
+        margin: 5px 0;
+    }
+
+    /* Hide default Jekyll/GitHub Pages footer */
+    .site-footer, footer:not(.custom-footer) {
+        display: none !important;
+    }
+
+    /* 13. Responsive Design */
+    @media (max-width: 768px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        .profile-image {
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            text-align: center;
+        }
+        
+        .social-links {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-btn {
+            width: 200px;
+        }
+        
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.5rem; }
+        .hero-tagline { font-size: 1.1rem; }
+    }
 </style>
 
 <div class="main-content">
@@ -149,13 +298,48 @@ title: Jason Donner | Senior Data Visualization Specialist
         <div class="social-links">
             <a href="https://www.linkedin.com/in/jason-donner/" target="_blank" class="social-btn">LinkedIn</a>
             <a href="mailto:jasdonner@gmail.com" class="social-btn">Email Me</a>
-            
-            <a href="Resume.pdf" target="_blank" class="social-btn">Resume</a>
+            <a href="https://jason-donner.github.io/Resume.pdf" target="_blank" class="social-btn">Resume</a>
         </div>
     </header>
 
+    <!-- NEW: About Section -->
     <div class="glass-panel">
-        <div style="text-align: center; margin-bottom: 20px;">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <img src="profile-photo.jpg" alt="Jason Donner" class="profile-image" 
+                 onerror="this.style.display='none'">
+            <div class="about-content">
+                <p>
+                    I'm a Senior Data Visualization Specialist who believes that great analytics isn't just about accuracy, it's about impact. My career has been defined by transforming complex datasets into intuitive, visually compelling experiences that drive real business decisions.
+                </p>
+                <p>
+                    With over 5 years of experience in software development, reporting, and analytics, I've developed a unique approach that combines technical rigor with design thinking. I'm equally comfortable writing SQL queries, architecting Tableau dashboards, and collaborating with stakeholders to understand their real needs, not just their stated requirements.
+                </p>
+                <p>
+                    When I'm not building dashboards, you'll find me exploring new data visualization techniques, attending concerts (as evidenced below), or experimenting creating art (digital and graphic design). I'm currently seeking opportunities where I can bring data to life for teams that value both precision and presentation.
+                </p>
+                
+                <div class="skills-list">
+                    <span class="skill-tag">Tableau</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Adobe Creative Suite</span>
+                    <span class="skill-tag">Mapbox</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Dashboard Architecture</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Featured Project -->
+    <div class="glass-panel">
+        <h2>Featured Work</h2>
+        
+        <div style="text-align: center; margin-bottom: 30px;">
             <p style="color: var(--text-muted); font-size: 0.9rem;">
                 STACK: <strong style="color: var(--accent-purple);">TABLEAU</strong> + <strong style="color: var(--accent-purple);">MAPBOX</strong> + <strong style="color: var(--accent-purple);">SET ACTIONS</strong>
             </p>
@@ -190,7 +374,7 @@ title: Jason Donner | Senior Data Visualization Specialist
             <div class="tech-column">
                 <h3 style="color: var(--accent-cyan);">The Technical Architecture</h3>
                 <p>
-                    I treated this dashboard like a software product, not a report. I used <strong>Mapbox Studio</strong> to build a custom 'Dark Glass' layer, removing 90% of the map detail to create a high-contrast stage for the data. For interactivity, I used <strong>Tableau Set Actions</strong> to create a fluid drill-down: clicking a single venue instantly isolates that specific memory in the side panel, creating a responsive, app-like feel without clunky filters.
+                    I treated this dashboard like an application, not a report. I used <strong>Mapbox Studio</strong> to build a custom 'Dark Glass' layer, removing 90% of the map detail to create a high-contrast stage for the data. For interactivity, I used <strong>Tableau Set Actions</strong> to create a fluid drill-down: clicking a single venue instantly isolates that specific memory in the side panel, creating a responsive, app-like feel without clunky filters.
                 </p>
             </div>
         </div>
@@ -203,7 +387,20 @@ title: Jason Donner | Senior Data Visualization Specialist
         </div>
     </div>
 
+    <!-- NEW: Call to Action -->
+    <div class="cta-section">
+        <h2>Let's Build Something Together</h2>
+        <p>Looking for a data visualization specialist who can turn your data into compelling stories?</p>
+        <a href="mailto:jasdonner@gmail.com" class="cta-button">Get In Touch</a>
+    </div>
+
 </div>
+
+<!-- NEW: Custom Footer -->
+<footer class="custom-footer">
+    <p><strong>Jason Donner</strong> • Senior Data Visualization Specialist</p>
+    <p>© 2025 • Built with care using Jekyll and GitHub Pages</p>
+</footer>
 
 <script>
     window.onload = function() { window.scrollTo(0, 0); };
