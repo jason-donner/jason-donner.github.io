@@ -26,10 +26,9 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin: 0;
     }
 
-    /* 2. HEADER GRADIENT FIX (Visible Dark Teal) */
+    /* 2. HEADER GRADIENT (Dark Teal to Black) */
     header.site-header, .site-header {
         background-image: none !important;
-        /* A visible gradient: Dark Slate/Teal fading to Black */
         background: linear-gradient(180deg, #102025 0%, #121212 100%) !important;
         border-bottom: 2px solid var(--accent-cyan) !important;
         padding: 20px 0 !important;
@@ -55,8 +54,8 @@ title: Jason Donner | Senior Data Visualization Specialist
 
     /* 4. Layout Containers */
     .main-content {
-        /* FIXED WIDTH: 1420px is perfect for 1366px Dashboard + Padding */
-        max-width: 1420px !important; 
+        /* UPDATED: Increased to 1500px to kill the scrollbar */
+        max-width: 1500px !important; 
         margin: 0 auto;
         padding: 10px 20px 40px 20px;
     }
@@ -66,20 +65,19 @@ title: Jason Donner | Senior Data Visualization Specialist
         background: var(--card-bg);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 12px;
-        padding: 25px; 
+        padding: 30px; 
         margin-bottom: 60px;
         backdrop-filter: blur(10px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        /* Ensure text doesn't get cut off */
-        overflow: visible; 
-        height: auto;
+        /* UPDATED: Removed min-height so it shrinks to fit content */
+        height: auto; 
     }
 
     /* 6. Hero Section */
     .hero-section {
         text-align: center;
         padding: 0 0 30px 0;
-        border-bottom: none; /* No grey bar */
+        border-bottom: none; 
         margin-bottom: 20px; 
     }
     .hero-tagline {
@@ -111,7 +109,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     }
 
-    /* 8. Technical Grid (Fixed: Switched to Flexbox) */
+    /* 8. Technical Grid (Flexbox) */
     .tech-grid {
         display: flex;
         flex-wrap: wrap;
@@ -119,7 +117,6 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin-top: 40px;
         text-align: left;
     }
-    /* Forces columns to be side-by-side on desktop, stacked on mobile */
     .tech-column {
         flex: 1;
         min-width: 300px;
@@ -149,9 +146,22 @@ title: Jason Donner | Senior Data Visualization Specialist
             </p>
         </div>
 
-        <div style="width: 100%; margin: 0 auto 40px auto; min-height: 700px; display: flex; justify-content: center;">
+        <div style="width: 100%; margin: 0 auto 40px auto; overflow-x: auto; display: flex; justify-content: center;">
             
-            <div class='tableauPlaceholder' id='viz1765935906851' style='position: relative'><noscript><a href='#'><img alt='2025 CONCERT HISTORY ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GCD3WMKM8' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765935906851');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class='tableauPlaceholder' id='viz1765935906851' style='position: relative'><noscript><a href='#'><img alt='2025 CONCERT HISTORY ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GCD3WMKM8' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
+            
+            <script type='text/javascript'>                    
+                var divElement = document.getElementById('viz1765935906851');                    
+                var vizElement = divElement.getElementsByTagName('object')[0];                    
+                
+                // FORCE DESKTOP SIZE (Fixes the vertical black void)
+                vizElement.style.width='1366px';
+                vizElement.style.height='795px'; 
+                
+                var scriptElement = document.createElement('script');                    
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+            </script>
         
         </div>
 
