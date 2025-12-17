@@ -26,17 +26,18 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin: 0;
     }
 
-    /* 2. HEADER GRADIENT (Dark Teal to Black) */
+    /* 2. THE HEADER FIX (STEALTH MODE) */
     header.site-header, .site-header {
         background-image: none !important;
-        background: linear-gradient(180deg, #102025 0%, #121212 100%) !important;
-        border-bottom: 2px solid var(--accent-cyan) !important;
+        background-color: #121212 !important; /* Matches Body Background exactly */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle separator */
         padding: 20px 0 !important;
     }
     
+    /* Force Title to be White */
     .site-title, .site-title:visited {
         color: #FFFFFF !important;
-        text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+        text-shadow: none !important; /* Clean text, no glow */
     }
 
     /* 3. Typography */
@@ -54,7 +55,6 @@ title: Jason Donner | Senior Data Visualization Specialist
 
     /* 4. Layout Containers */
     .main-content {
-        /* UPDATED: Increased to 1500px to kill the scrollbar */
         max-width: 1500px !important; 
         margin: 0 auto;
         padding: 10px 20px 40px 20px;
@@ -69,7 +69,6 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin-bottom: 60px;
         backdrop-filter: blur(10px);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        /* UPDATED: Removed min-height so it shrinks to fit content */
         height: auto; 
     }
 
@@ -154,7 +153,7 @@ title: Jason Donner | Senior Data Visualization Specialist
                 var divElement = document.getElementById('viz1765935906851');                    
                 var vizElement = divElement.getElementsByTagName('object')[0];                    
                 
-                // FORCE DESKTOP SIZE (Fixes the vertical black void)
+                // FORCE DESKTOP SIZE (Prevents black void)
                 vizElement.style.width='1366px';
                 vizElement.style.height='795px'; 
                 
