@@ -26,7 +26,19 @@ title: Jason Donner | Senior Data Visualization Specialist
         margin: 0;
     }
 
-    /* 2. Typography */
+    /* 2. OVERRIDE DEFAULT JEKYLL HEADER (The Immersion Fix) */
+    header.site-header, .site-header {
+        background-image: none !important;
+        background-color: #151515 !important;
+        border-bottom: 2px solid var(--accent-cyan) !important;
+    }
+    
+    .site-title, .site-title:visited {
+        color: #FFFFFF !important;
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    }
+
+    /* 3. Typography */
     h1, h2, h3 {
         color: #FFFFFF;
         font-weight: 700;
@@ -39,14 +51,15 @@ title: Jason Donner | Senior Data Visualization Specialist
     a { color: var(--accent-cyan); text-decoration: none; transition: 0.3s; }
     a:hover { color: #FFFFFF; text-shadow: 0 0 10px var(--accent-cyan); }
 
-    /* 3. Layout Containers */
+    /* 4. Layout Containers */
     .main-content {
-        max-width: 1400px;
+        /* UPDATED: Increased to 1450px to fit the 1366px Dashboard + Padding */
+        max-width: 1450px; 
         margin: 0 auto;
         padding: 40px 20px;
     }
 
-    /* 4. Glass Panels */
+    /* 5. Glass Panels */
     .glass-panel {
         background: var(--card-bg);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -57,10 +70,9 @@ title: Jason Donner | Senior Data Visualization Specialist
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
-    /* 5. Hero Section */
+    /* 6. Hero Section */
     .hero-section {
         text-align: center;
-        /* UPDATED: Reduced padding to pull bio up */
         padding: 10px 0 40px 0; 
         border-bottom: 1px solid rgba(255,255,255,0.1);
         margin-bottom: 40px;
@@ -69,11 +81,11 @@ title: Jason Donner | Senior Data Visualization Specialist
         font-size: 1.3rem;
         color: var(--text-muted);
         max-width: 750px;
-        margin: 0 auto 20px auto; /* Reduced top margin */
+        margin: 0 auto 20px auto; 
         line-height: 1.8;
     }
 
-    /* 6. Social Links */
+    /* 7. Social Links */
     .social-links {
         margin-top: 20px;
         display: flex;
@@ -94,7 +106,7 @@ title: Jason Donner | Senior Data Visualization Specialist
         box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     }
 
-    /* 7. Technical Grid */
+    /* 8. Technical Grid */
     .tech-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -131,9 +143,8 @@ title: Jason Donner | Senior Data Visualization Specialist
         </div>
 
         <div style="width: 100%; margin: 0 auto 40px auto; min-height: 700px; overflow-x: auto;">
-            
             <div class='tableauPlaceholder' id='viz1765935906851' style='position: relative'><noscript><a href='#'><img alt='2025 CONCERT HISTORY ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GCD3WMKM8' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GC&#47;GCD3WMKM8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765935906851');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-            </div>
+        </div>
 
         <div class="tech-grid">
             <div>
