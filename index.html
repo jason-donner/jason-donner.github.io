@@ -17,22 +17,29 @@ title: Jason Donner | Senior Data Visualization Specialist
         --text-muted: #B0B0B0;
     }
 
-    /* 1. Global Reset */
+    /* 1. Global Reset & AMBIENT GLOW BACKGROUND */
     body {
-        background-color: var(--bg-color) !important;
+        /* The "Spotlight" Effect: Deep Teal glow at top, fading to black */
+        background: radial-gradient(circle at 50% 0%, #1a2629 0%, #121212 70%) !important;
+        background-color: #121212 !important; /* Fallback */
+        background-attachment: fixed !important; /* Keeps the glow centered when scrolling */
+        
         color: var(--text-main) !important;
         font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         line-height: 1.6;
         margin: 0;
     }
 
-    /* 2. THE HEADER FIX (The "Nuclear" Selector) */
-    /* We target ALL potential header classes to override the Cayman Theme defaults */
+    /* 2. HEADER FIX (Transparent + No Border) */
     header, .site-header, .page-header, #header_wrap {
-        background-color: #121212 !important; /* Solid Dark Background */
-        background-image: none !important;    /* Kills the Gradient */
-        background: #121212 !important;       /* Double-tap to be sure */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; 
+        background-color: transparent !important; /* Let the body glow show through */
+        background-image: none !important;
+        background: transparent !important;
+        
+        /* REMOVED THE BORDER TO HIDE THE GREY BAR */
+        border-bottom: none !important; 
+        box-shadow: none !important;
+        
         padding: 20px 0 !important;
         text-align: center !important;
         width: 100% !important;
