@@ -421,6 +421,32 @@ title: Jason Donner | Senior Data Visualization Specialist
         
         h1 { font-size: 2rem; }
         h2 { font-size: 1.5rem; }
+
+        /* GIF Container - Responsive & Centered */
+        .gif-container {
+            max-width: 1384px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 229, 255, 0.15);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3); 
+        }
+
+        .dashboard-gif {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .gif-container {
+                max-width: 100%;
+                border-radius: 4px;
+            }
+        }
     }
 </style>
 
