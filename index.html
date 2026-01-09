@@ -549,45 +549,50 @@ title: Jason Donner | Senior Data Visualization Specialist
     <div class="section-divider"></div>
 
     <!-- Featured Project -->
-    <div class="glass-panel">
-        <h2>Featured Work</h2>
+<div class="glass-panel" style="position: relative; overflow: hidden;">
         
-        <div style="text-align: center; margin-bottom: 30px;">
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-                STACK: <strong style="color: var(--accent-purple);">TABLEAU</strong> + <strong style="color: var(--accent-purple);">MAPBOX</strong> + <strong style="color: var(--accent-purple);">SET ACTIONS</strong>
+        <div style="position: absolute; top: 20px; right: -30px; background: var(--accent-purple); color: white; padding: 5px 40px; transform: rotate(45deg); font-size: 0.8rem; font-weight: bold; box-shadow: 0 2px 10px rgba(0,0,0,0.3); z-index: 10;">
+            LATEST
+        </div>
+
+        <h2>The GLP-1 Divide</h2>
+        <h4 style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Geography, Economics, and the Equity Gap</h4>
+        
+        <div style="text-align: center; margin-bottom: 40px;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; letter-spacing: 1px;">
+                STACK: <strong style="color: var(--accent-cyan);">PYTHON (ETL)</strong> + <strong style="color: var(--accent-cyan);">TABLEAU</strong> + <strong style="color: var(--accent-cyan);">SCROLLYTELLING</strong>
             </p>
         </div>
 
-        <div style="width: 100%; margin: 0 auto 40px auto; display: flex; justify-content: center;">
-    
-    <div class="gif-container">
-        <img src="Dashboard_Demo.gif" 
-             alt="Interactive Concert Dashboard Demo - Mapbox + Tableau" 
-             class="dashboard-gif"
-             loading="lazy">
-    </div>
-
-</div>
+        <div style="width: 100%; margin: 0 auto 40px auto; border-radius: 8px; overflow: hidden; box-shadow: 0 0 30px rgba(0, 229, 255, 0.15); border: 1px solid rgba(0, 229, 255, 0.2);">
+            <img src="glp1-preview.png" 
+                 alt="The GLP-1 Divide Dashboard Preview" 
+                 style="width: 100%; height: auto; display: block; opacity: 0.9;">
+        </div>
 
         <div class="tech-grid">
             <div class="tech-column">
-                <h3 style="color: var(--accent-cyan);">The Design Challenge</h3>
+                <h3 style="color: var(--accent-cyan);">The Problem</h3>
                 <p>
-                    Personal data is intimate, but often small in volume. With only 30 data points for my 2025 concert tour, a standard map felt sparse and utilitarian. My challenge was to transform a simple list of events into an immersive experience; something that felt substantial and worth exploring, rather than just a scattering of dots.
+                    New anti-obesity drugs (GLP-1s) are a clinical breakthrough, but are they accessible? I investigated the intersection of <strong>disease prevalence</strong>, <strong>household income</strong>, and <strong>state policy</strong>. The data revealed a "Double Whammy": The states with the highest obesity rates are statistically the least likely to afford the medication, often facing costs exceeding 27% of monthly income.
                 </p>
             </div>
             <div class="tech-column">
-                <h3 style="color: var(--accent-cyan);">The Technical Architecture</h3>
+                <h3 style="color: var(--accent-cyan);">The Solution</h3>
                 <p>
-                    I treated this dashboard like an application, not a report. I used <strong>Mapbox Studio</strong> to build a custom 'Dark Glass' layer, removing 90% of the map detail to create a high-contrast stage for the data. For interactivity, I used <strong>Tableau Set Actions</strong> to create a fluid drill-down: clicking a single venue instantly isolates that specific memory in the side panel, creating a responsive, app-like feel without clunky filters.
+                    I engineered a robust data pipeline using <strong>Python (Pandas)</strong> to merge disparate datasets from the CDC, Census Bureau, and KFF. In Tableau, I architected a <strong>"Scrollytelling"</strong> experience that moves from a high-level map to a granular economic analysis. Using custom <strong>Dumbbell Charts</strong> and <strong>Parameter Actions</strong>, I visualized the precise "Affordability Gap" while maintaining a fluid, app-like user experience.
                 </p>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="https://public.tableau.com/views/2025ConcertDashboard/2025ConcertDashboard" target="_blank" 
-               style="border-bottom: 1px solid var(--accent-cyan); padding-bottom: 5px; font-weight: bold;">
-               View Full Interaction on Tableau Public &rarr;
+        <div style="text-align: center; margin-top: 50px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="INSERT_YOUR_GITHUB_REPO_LINK" target="_blank" 
+               style="border: 1px solid var(--text-muted); padding: 10px 25px; border-radius: 50px; color: var(--text-muted); font-size: 0.9rem;">
+               View Code (GitHub)
+            </a>
+            <a href="https://public.tableau.com/views/GLP-1EquityAnalysisDashboard/GLP-1EquityAnalysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" 
+               style="background: var(--accent-cyan); color: #000; padding: 10px 30px; border-radius: 50px; font-weight: bold; box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);">
+               View Interactive Dashboard &rarr;
             </a>
         </div>
     </div>
