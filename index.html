@@ -5,223 +5,176 @@ title: Jason Donner | Data Visualization Specialist
 
 <style>
     /* =========================================
-       1. GLOBAL VARIABLES & RESET
+       0. IMPORT FONTS
+       ========================================= */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@300;700;900&display=swap');
+
+    /* =========================================
+       1. GLOBAL VARIABLES
        ========================================= */
     :root {
-        /* BACKGROUND: Cream / Parchment */
-        --bg-color: #FFFDD0;       
-        
-        /* CARD: Soft White (Not stark white) */
-        --card-bg: #FFFEF0;        
-        
-        /* ACCENT: Muted Gold/Orange */
-        --accent-color: #df6f00;  
-        
-        /* TEXT: Deep Charcoal */
+        --bg-color: #F2F0E9;       
+        --card-bg: #FDFBF7;        
+        --accent-color: #D96C00; /* Burnt Orange */
         --text-main: #2D2D2D;      
-        --text-muted: #5A5A5A;     
-        
-        /* BORDERS & SPACING */
-        --border-radius: 12px;     
-        --gap: 24px;               
+        --text-muted: #5F5F5F;     
+        --border-color: rgba(0,0,0,0.08);
+        --border-radius: 6px;     
+        --gap: 20px; 
     }
 
+    /* =========================================
+       2. BASE STYLES
+       ========================================= */
     body {
         background-color: var(--bg-color) !important;
-        background-image: none !important;
         color: var(--text-main) !important;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: 'Inter', Helvetica, Arial, sans-serif;
         margin: 0;
         padding: 40px 20px;
         line-height: 1.6;
-    }
-
-    /* 1. TEXTURE & BACKGROUND (The Elevators) */
-    body {
-        background-color: var(--bg-color) !important;
-        color: var(--text-main) !important;
-        margin: 0;
-        padding: 60px 20px;
-        line-height: 1.6;
         position: relative;
-        
-        /* TYPOGRAPHY: The "Editorial" Mix */
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Body = Clean */
     }
 
-    /* ADDITION: The Dot Grid Pattern */
+    /* BACKGROUND: RASTER IMAGE INVERSION TRICK */
     body::before {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
-        /* Creates a tiny dot pattern */
-        background-image: radial-gradient(#A3A3A3 1px, transparent 1px);
-        background-size: 24px 24px; /* Space between dots */
-        opacity: 0.25; /* Very subtle */
+        
+        /* 1. Point this to where you saved the image */
+        background-image: url('/assets/topographic-map-background.png'); 
+        
+        background-size: 600px auto; /* Adjusts the zoom level of the map */
+        background-repeat: repeat;
+        
+        /* 2. THE CSS TRICK: */
+        /* Invert swaps Black BG -> White BG and Light Lines -> Dark Lines */
+        filter: invert(1) grayscale(1); 
+        
+        /* Multiply makes the new White BG transparent, leaving only dark lines */
+        mix-blend-mode: multiply;       
+        
+        opacity: 0.15; /* Controls how faint the lines are */
         pointer-events: none;
         z-index: -1;
     }
 
-    /* ADDITION: The Noise Overlay (Paper Feel) */
-    body::after {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        /* Generates noise texture */
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 100; /* sits on top of everything */
-        opacity: 0.4;
-    }
-
-    /* Hide Jekyll Headers */
+    /* Hide Jekyll Defaults */
     header, .site-header, .page-header, #header_wrap { display: none !important; }
 
     /* =========================================
-       2. THE BENTO GRID SYSTEM
+       3. TYPOGRAPHY
+       ========================================= */
+    h1, h2, h3, h4 { 
+        color: var(--text-main) !important; 
+        margin-top: 0;
+    }
+    
+    h1 a, h2 a, h3 a, h4 a { color: inherit !important; text-decoration: none; }
+
+    h1 {
+        font-family: 'Merriweather', serif;
+        font-weight: 900;
+        font-size: 2.5rem; 
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+    }
+
+    /* SUBSTANTIAL HEADER STYLE */
+    .section-header {
+        font-family: 'Merriweather', serif;
+        font-size: 1.5rem;
+        font-weight: 800; 
+        color: var(--text-main);
+        margin-bottom: 20px;
+        padding-left: 16px; 
+        border-left: 6px solid var(--accent-color); 
+        line-height: 1.2;
+        display: block;
+    }
+
+    h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+        font-family: 'Merriweather', serif; 
+    }
+
+    p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    /* =========================================
+       4. GRID SYSTEM
        ========================================= */
     .bento-grid {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         gap: var(--gap);
-        max-width: 1200px;
+        max-width: 1100px; 
         margin: 0 auto;
-        align-items: start; 
     }
 
-    /* Grid Spans */
     .span-12 { grid-column: span 12; }
-    .span-8  { grid-column: span 8; } 
+    .span-6  { grid-column: span 6; }
     .span-4  { grid-column: span 4; } 
 
-    /* Sidebar Wrapper */
-    .sidebar-stack {
-        grid-column: span 4;
-        display: flex;
-        flex-direction: column;
-        gap: var(--gap);
-    }
-
     /* =========================================
-       3. CARD STYLING
+       5. CARDS
        ========================================= */
     .bento-card {
         background: var(--card-bg);
         border-radius: var(--border-radius);
-        padding: 40px;
-        transition: transform 0.2s ease;
-        border: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.03); 
+        padding: 30px; 
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: 100%;
+        justify-content: space-between; 
+        height: 100%; 
         box-sizing: border-box;
     }
 
-    .bento-card:hover {
+    .bento-card-compact {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 25px 30px; 
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        text-align: center;
+    }
+
+    .bento-card:hover, .bento-card-compact:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.06); 
+        box-shadow: 0 8px 16px rgba(0,0,0,0.06); 
         border-color: rgba(0,0,0,0.15);
-    }
-
-    /* Typography */
-    h1 {
-        font-size: 3.2rem;
-        font-weight: 800;
-        letter-spacing: -1px;
-        margin: 0 0 15px 0;
-        line-height: 1.1;
-        color: var(--text-main);
-    }
-
-    h2 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        margin: 0 0 10px 0;
-        letter-spacing: -0.5px;
-    }
-
-    h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--text-main);
-        margin: 0 0 15px 0;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-bottom: 2px solid var(--accent-color);
-        display: inline-block;
-        padding-bottom: 2px;
-    }
-    
-    h4 {
-        font-size: 1rem;
-        font-weight: 700;
-        margin: 0 0 5px 0;
-        color: var(--text-main);
-    }
-
-    .subtitle {
-        background-color: var(--accent-color);
-        color: #FFFFFF;
-        font-weight: 700;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        padding: 6px 14px;
-        border-radius: 50px;
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-    
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.4); }
-        70% { box-shadow: 0 0 0 6px rgba(39, 174, 96, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
-    }
-
-    p {
-        color: var(--text-muted);
-        font-size: 1.05rem;
-        margin: 0 0 20px 0;
-        max-width: 100%;
-    }
-
-    .text-link {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-    .text-link:hover { text-decoration: underline; }
-    
-    .divider {
-        height: 1px;
-        background: rgba(0,0,0,0.05);
-        margin: 15px 0;
-        width: 100%;
+        transition: all 0.2s ease;
     }
 
     /* =========================================
-       4. BUTTONS & PILLS
+       6. BUTTONS & LINKS
        ========================================= */
     .btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 10px 24px;
-        border-radius: 6px;
+        padding: 8px 20px;
+        border-radius: 4px;
         font-weight: 600;
         text-decoration: none;
         transition: all 0.2s;
-        font-size: 0.9rem;
-        border: 1px solid transparent;
+        font-size: 0.85rem;
         cursor: pointer;
+        margin-right: 8px;
     }
 
     .btn-primary {
         background-color: var(--text-main);
-        color: #FFFDD0; 
+        color: #FFF; 
+        border: 1px solid var(--text-main);
     }
     .btn-primary:hover {
         background-color: #000;
@@ -230,132 +183,170 @@ title: Jason Donner | Data Visualization Specialist
 
     .btn-secondary {
         background-color: transparent;
-        color: var(--text-main);
+        color: var(--text-main) !important; 
         border: 1px solid #CCC;
     }
     .btn-secondary:hover {
+        background-color: var(--text-main) !important; 
+        color: var(--bg-color) !important; 
         border-color: var(--text-main);
-        background-color: rgba(255,255,255,0.5);
+        transform: translateY(-1px);
+    }
+    
+    .text-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+        transition: border 0.2s;
+    }
+    .text-link:hover { border-bottom-color: var(--accent-color); }
+
+    /* =========================================
+       7. COMPONENTS
+       ========================================= */
+    .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        border: 1px solid rgba(0,0,0,0.1);
+        margin: 15px 0 20px 0; 
     }
 
-    /* Tech Stack Pills */
     .skill-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 8px;
     }
     
     .skill-pill {
-        background: rgba(0,0,0,0.03);
-        padding: 6px 14px;
-        border: 1px solid rgba(0,0,0,0.08);
+        background: transparent;
+        padding: 4px 10px;
+        border: 1px solid rgba(0,0,0,0.15);
         border-radius: 4px;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         font-weight: 600;
         color: var(--text-main);
     }
     
-    /* NEW: High-Viz Skill Pill for Tableau */
     .skill-pill-highlight {
-        background-color: var(--text-main); /* Dark Charcoal */
-        color: #FFFDD0; /* Cream Text */
-        padding: 6px 14px;
-        border-radius: 4px; /* Matches other pills */
-        font-size: 0.85rem;
+        background-color: var(--text-main);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.75rem;
         font-weight: 600;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-    
-    .project-image {
+
+    .divider {
+        height: 1px;
+        background: rgba(0,0,0,0.08);
+        margin: 20px 0;
         width: 100%;
-        height: auto;
-        border-radius: 8px;
-        border: 1px solid rgba(0,0,0,0.1);
-        margin-bottom: 25px;
     }
 
     /* =========================================
-       5. MOBILE RESPONSIVENESS
+       8. MOBILE
        ========================================= */
     @media (max-width: 900px) {
-        .bento-grid { display: flex; flex-direction: column; }
-        .span-8, .span-4, .sidebar-stack { grid-column: span 12; width: 100%; }
-        h1 { font-size: 2.5rem; }
-        body { padding: 20px; }
+        .bento-grid { display: flex; flex-direction: column; gap: 20px; }
+        .span-12, .span-6 { width: 100%; }
+        h1 { font-size: 2rem; }
+        body { padding: 20px 15px; }
+        .featured-footer { flex-direction: column; align-items: flex-start; gap: 15px; }
     }
 </style>
 
 <div class="bento-grid">
 
-    <div class="bento-card span-12" style="text-align: center; padding: 70px 20px;">
-
+    <div class="bento-card-compact span-12">
         <h1>Jason Donner</h1>
-        <span class="subtitle" style="background: transparent; color: var(--text-muted); padding: 0; margin-bottom: 30px; letter-spacing: 2px;">Senior Data Visualization Specialist</span>
-        
-        <p style="max-width: 600px; margin: 0 auto 35px auto; font-size: 1.2rem;">
-            I transform complex datasets into clear, actionable narratives. 
-            Bridging the gap between raw data and executive strategy.
+        <div style="font-family: 'Inter', sans-serif; font-weight: 500; color: var(--text-muted); margin-bottom: 20px;">
+            Data Visualization Specialist
+        </div>
+        <p style="max-width: 600px; margin: 0 auto 20px auto;">
+            Transforming complex data into clear, actionable narratives through intuitive visual design.
         </p>
-        
-        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
             <a href="mailto:jason.m.donner@gmail.com" class="btn btn-primary">Get In Touch</a>
-            <a href="Resume.pdf" target="_blank" class="btn btn-secondary">Download Resume</a>
-            <a href="https://linkedin.com/in/jason-donner" target="_blank" class="btn btn-secondary">LinkedIn</a>
-            <a href="https://github.com/jason-donner" target="_blank" class="btn btn-secondary">GitHub</a>
+            <a href="Resume.pdf" class="btn btn-secondary">Resume</a>
+            <a href="https://linkedin.com/in/jason-donner" class="btn btn-secondary">LinkedIn</a>
         </div>
     </div>
 
-    <div class="bento-card span-8">
-        <span class="subtitle" style="background-color: #df6f00; color: #FFFFFF;">Featured Analysis</span>
-        <h2>The GLP-1 Divide</h2>
-        <p>
+    <div class="bento-card span-12">
+        <h2 class="section-header">Featured Analysis: The GLP-1 Divide</h2>
+        
+        <p style="max-width: 800px;">
             Do new weight-loss drugs actually reach the people who need them? 
             I built a Python pipeline to merge CDC obesity rates with Census data.
             The result: An insightful dashboard revealing the massive affordability gap.
         </p>
         
-        <img src="assets/glp1-preview-2.png" alt="GLP-1 Analysis Preview" class="project-image" style="margin-top: 10px;">
+        <img src="assets/glp1-preview-2.png" alt="GLP-1 Analysis Preview" class="project-image">
 
-        <div style="margin-top: auto; display: flex; gap: 10px;">
-            <a href="https://public.tableau.com/views/GLP-1EquityAnalysisDashboard/GLP-1EquityAnalysis" target="_blank" class="btn btn-primary">
-                View Dashboard
-            </a>
-            <a href="https://github.com/jason-donner/glp1_access_project" target="_blank" class="btn btn-secondary">
-                View Code
-            </a>
+        <div class="featured-footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div style="display: flex; gap: 10px;">
+                <a href="https://public.tableau.com/views/GLP-1EquityAnalysisDashboard/GLP-1EquityAnalysis" target="_blank" class="btn btn-primary">
+                    View Dashboard
+                </a>
+                <a href="https://github.com/jason-donner/glp1_access_project" target="_blank" class="btn btn-secondary">
+                    View Code
+                </a>
+            </div>
+            
+            <div class="skill-container" style="align-items: center;">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-right: 5px;">STACK:</span>
+                <span class="skill-pill-highlight">Tableau</span>
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">ETL</span>
+                <span class="skill-pill">Pandas</span>
+            </div>
         </div>
     </div>
 
-    <div class="sidebar-stack">
+    <div class="bento-card span-6">
+        <h2 class="section-header">Technical Skills</h2>
         
-        <div class="bento-card">
-            <h3>Technical Arsenal</h3>
-            <div class="skill-container">
-                <span class="skill-pill-highlight">Tableau</span>
-                
-                <span class="skill-pill">Power BI</span>
-                <span class="skill-pill">Python</span>
-                <span class="skill-pill">SQL</span>
-                <span class="skill-pill">Pandas</span>
-                <span class="skill-pill">Figma</span>
-                <span class="skill-pill">GitHub</span>
-                <span class="skill-pill">HTML/CSS</span>
-                <span class="skill-pill">ETL</span>
-            </div>
+        <h4 style="margin-bottom:8px; opacity:0.8;">The Stack</h4>
+        <div class="skill-container" style="margin-bottom: 20px;">
+            <span class="skill-pill-highlight">Tableau</span>
+            <span class="skill-pill-highlight">Power BI</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">Pandas</span>
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">HTML/CSS</span>
+            <span class="skill-pill">ETL</span>
         </div>
 
-        <div class="bento-card">
-            <h3>Other Projects</h3>
-            
-            <div style="margin-bottom: 5px;">
+        <div class="divider"></div>
+
+        <h4 style="margin-bottom:8px; opacity:0.8;">Core Competencies</h4>
+        <div class="skill-container">
+            <span class="skill-pill">Data Storytelling</span>
+            <span class="skill-pill">Stakeholder Management</span>
+            <span class="skill-pill">Dashboard UI/UX</span>
+            <span class="skill-pill">Requirement Gathering</span>
+            <span class="skill-pill">Process Automation</span>
+        </div>
+        
+        <div style="flex-grow:1;"></div>
+    </div>
+
+    <div class="bento-card span-6">
+        <h2 class="section-header">Other Projects</h2>
+        
+        <div style="margin-top: 5px;">
+            <div style="margin-bottom: 20px;">
                 <h4>2025 Concert Log</h4>
-                <p style="font-size: 0.95rem; margin-bottom: 8px;">
-                    Interactive Mapbox drill-down tracking live music analytics.
+                <p style="font-size: 0.9rem; margin-bottom: 8px;">
+                    Interactive map tracking my year in live music.
                 </p>
-                <div style="font-size: 0.9rem;">
+                <div style="font-size: 0.85rem;">
                     <a href="https://public.tableau.com/views/2025ConcertDashboard/2025ConcertDashboard" target="_blank" class="text-link">Dashboard</a>
                      &nbsp;•&nbsp; 
-                    <a href="#" class="text-link">Code</a>
+                    <a href="https://github.com/jason-donner/2025-concert-log-viz" target="_blank" class="text-link">View Code</a>
                 </div>
             </div>
 
@@ -363,35 +354,20 @@ title: Jason Donner | Data Visualization Specialist
 
             <div>
                 <h4>Sales Performance KPI</h4>
-                <p style="font-size: 0.95rem; margin-bottom: 8px;">
-                    Automated executive reporting suite using SQL and Tableau.
+                <p style="font-size: 0.9rem; margin-bottom: 8px;">
+                    Automated reporting for regional sales metrics.
                 </p>
-                <div style="font-size: 0.9rem;">
-                    <a href="#" class="text-link">Dashboard</a>
+                <div style="font-size: 0.85rem;">
+                    <span style="color: var(--text-muted); font-style: italic;">Coming Soon</span>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <div class="bento-card span-12" style="background-color: var(--text-main); color: #FFFDD0; text-align: center;">
-        <h2 style="color: var(--accent-color);">Let's Work Together</h2>
-        <p style="color: #CCC; max-width: 600px; margin: 0 auto 30px auto;">
-            Open to analyst and visualization roles.
-        </p>
-        
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <a href="mailto:jason.m.donner@gmail.com" class="btn" style="background: var(--accent-color); color: var(--text-main);">
-                Email Me
-            </a>
-            <a href="https://linkedin.com/in/jason-donner" class="btn" style="border: 1px solid #FFFDD0; color: #FFFDD0;">
-                LinkedIn
-            </a>
-        </div>
-        
-        <div style="margin-top: 40px; font-size: 0.8rem; opacity: 0.7;">
-            © 2025 Jason Donner • Built with Jekyll & GitHub Pages
-        </div>
+    <div class="bento-card-compact span-12" style="background-color: var(--text-main); color: #FFFDD0;">
+        <h2 style="color: #FFFDD0 !important; font-size: 1.5rem; font-family: 'Merriweather', serif;">Let's Work Together</h2>
+        <p style="color: #CCC; margin-bottom: 20px;">Open to analyst and visualization roles.</p>
+        <div style="font-size: 0.8rem; opacity: 0.6;">© 2025 Jason Donner</div>
     </div>
 
 </div>
