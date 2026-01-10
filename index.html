@@ -13,7 +13,7 @@ title: Jason Donner | Data Visualization Specialist
        1. GLOBAL VARIABLES
        ========================================= */
     :root {
-        --bg-color: #F2F0E9;       
+        --bg-color: #DCD7C2;       
         --card-bg: #FDFBF7;        
         --accent-color: #D96C00; /* Burnt Orange */
         --text-main: #2D2D2D;      
@@ -42,20 +42,17 @@ title: Jason Donner | Data Visualization Specialist
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
         
-        /* 1. Point this to where you saved the image */
+        /* Point this to where you saved the image */
         background-image: url('/assets/topographic-map-background.png'); 
         
-        background-size: 600px auto; /* Adjusts the zoom level of the map */
+        background-size: 600px auto; 
         background-repeat: repeat;
         
-        /* 2. THE CSS TRICK: */
-        /* Invert swaps Black BG -> White BG and Light Lines -> Dark Lines */
+        /* The CSS Trick: Invert + Multiply */
         filter: invert(1) grayscale(1); 
-        
-        /* Multiply makes the new White BG transparent, leaving only dark lines */
         mix-blend-mode: multiply;       
         
-        opacity: 0.15; /* Controls how faint the lines are */
+        opacity: 0.40; 
         pointer-events: none;
         z-index: -1;
     }
@@ -308,11 +305,10 @@ title: Jason Donner | Data Visualization Specialist
     <div class="bento-card span-6">
         <h2 class="section-header">Technical Skills</h2>
         
-        <h4 style="margin-bottom:8px; opacity:0.8;">The Stack</h4>
+        <h4 style="margin-bottom:8px; opacity:0.8;">Stack</h4>
         <div class="skill-container" style="margin-bottom: 20px;">
             <span class="skill-pill-highlight">Tableau</span>
-            <span class="skill-pill-highlight">Power BI</span>
-            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Power BI</span> <span class="skill-pill">Python</span>
             <span class="skill-pill">SQL</span>
             <span class="skill-pill">Pandas</span>
             <span class="skill-pill">GitHub</span>
@@ -324,8 +320,7 @@ title: Jason Donner | Data Visualization Specialist
 
         <h4 style="margin-bottom:8px; opacity:0.8;">Core Competencies</h4>
         <div class="skill-container">
-            <span class="skill-pill">Data Storytelling</span>
-            <span class="skill-pill">Stakeholder Management</span>
+            <span class="skill-pill-highlight">Data Storytelling</span> <span class="skill-pill">Stakeholder Management</span>
             <span class="skill-pill">Dashboard UI/UX</span>
             <span class="skill-pill">Requirement Gathering</span>
             <span class="skill-pill">Process Automation</span>
