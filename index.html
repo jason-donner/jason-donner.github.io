@@ -284,6 +284,31 @@ title: Jason Donner | Data Visualization Specialist
 @media (max-width: 600px) {
     .header-split { flex-direction: column-reverse; text-align: center; }
 }
+/* --- Add inside <style> --- */
+
+.analysis-grid {
+    display: grid;
+    /* Column 1 fits the label, Column 2 takes the rest */
+    grid-template-columns: max-content 1fr; 
+    /* Gap: 10px vertical between rows, 15px horizontal between label/text */
+    gap: 10px 15px; 
+    align-items: baseline; /* The secret sauce: aligns text baselines perfectly */
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.analysis-label {
+    font-weight: 700;
+    color: var(--text-main);
+    border-bottom: 3px solid var(--accent-color);
+    line-height: 1.2;
+}
+
+.analysis-text {
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
 </style>
 
 <div class="bento-grid">
@@ -296,12 +321,12 @@ title: Jason Donner | Data Visualization Specialist
                 Data Visualization Specialist
             </div>
             <p style="margin-bottom: 20px;">
-                Transforming complex data into clear, actionable narratives through intuitive visual design.
+                5+ years of experience transforming raw data into business intelligence. I build high-performance data pipelines and intuitive dashboards that drive executive decision-making.
             </p>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;"> 
                 <a href="mailto:jason.m.donner@gmail.com" class="btn btn-primary">Get In Touch</a>
-                <a href="Resume.pdf" class="btn btn-secondary">Resume</a>
-                <a href="https://linkedin.com/in/jason-donner" class="btn btn-secondary">LinkedIn</a>
+                <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" >Resume</a>
+                <a href="https://linkedin.com/in/jason-donner" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
             </div>
         </div>
         <div class="monogram-box">
@@ -313,11 +338,24 @@ title: Jason Donner | Data Visualization Specialist
     <div class="bento-card span-12">
         <h2 class="section-header">Featured Analysis: The GLP-1 Divide</h2>
         
-        <p style="max-width: 800px;">
-            <strong>Question:</strong>Do new weight-loss drugs actually reach the people who need them?<br>
-            <strong>Solution:</strong> I built a Python pipeline to merge CDC obesity rates with Census data.<br>
-            <strong>Result:</strong> An insightful dashboard revealing the affordability gap Americans are currently facing.
-        </p>
+        <div class="analysis-grid">
+    
+    <div class="analysis-label">Challenge:</div>
+    <div class="analysis-text">
+        Do new weight-loss drugs actually reach the people who need them most?
+    </div>
+
+    <div class="analysis-label">Solution:</div>
+    <div class="analysis-text">
+        I built a Python pipeline to merge CDC obesity rates with Census data, then visualized the output in Tableau.
+    </div>
+
+    <div class="analysis-label">Impact:</div>
+    <div class="analysis-text">
+        Engineered a Python (Pandas) ETL pipeline to synthesize disparate CDC and Census datasets, feeding into a custom-built Tableau interface designed for intuitive exploration of the GLP-1 availability gap.
+    </div>
+
+    </div>
         
         <img src="assets/glp1-preview-2.png" alt="GLP-1 Analysis Preview" class="project-image">
 
