@@ -13,7 +13,7 @@ title: Jason Donner | Data Visualization Specialist
        1. GLOBAL VARIABLES
        ========================================= */
     :root {
-        --bg-color: #DCD7C2;       
+        --bg-color: #adadad;       
         --card-bg: #FDFBF7;        
         --accent-color: #D96C00; /* Burnt Orange */
         --text-main: #2D2D2D;      
@@ -45,16 +45,15 @@ title: Jason Donner | Data Visualization Specialist
         /* Point this to where you saved the image */
         background-image: url('/assets/topographic-map-background.png'); 
         
-        background-size: 3000px auto; 
-        background-repeat: repeat;
+        background-size: 1080px auto;
         
         /* The CSS Trick: Invert + Multiply 
         filter: invert(1) grayscale(1); 
-        mix-blend-mode: multiply;       
+        mix-blend-mode: multiply;    */   
         
-        opacity: 0.40; 
+        opacity: 0.60; 
         pointer-events: none;
-        z-index: -1;*/
+        z-index: -1;
     }
 
     /* Hide Jekyll Defaults */
@@ -237,7 +236,7 @@ title: Jason Donner | Data Visualization Specialist
 
     .divider {
         height: 1px;
-        background: rgba(0,0,0,0.08);
+        background: #D96C00;
         margin: 20px 0;
         width: 100%;
     }
@@ -252,32 +251,72 @@ title: Jason Donner | Data Visualization Specialist
         body { padding: 20px 15px; }
         .featured-footer { flex-direction: column; align-items: flex-start; gap: 15px; }
     }
+    /* --- Add this inside your existing <style> tags --- */
+
+.header-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: 30px;
+}
+.header-content {
+    flex: 1;
+}
+.monogram-box {
+    width: 100px;
+    height: 100px;
+    background-color: var(--text-main);
+    color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    border: 4px solid var(--card-bg);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .header-split { flex-direction: column-reverse; text-align: center; }
+}
 </style>
 
 <div class="bento-grid">
 
     <div class="bento-card-compact span-12">
-        <h1>Jason Donner</h1>
-        <div style="font-family: 'Inter', sans-serif; font-weight: 500; color: var(--text-muted); margin-bottom: 20px;">
-            Data Visualization Specialist
+    <div class="header-split">
+        <div class="header-content">
+            <h1 style="margin-bottom: 5px;">Jason Donner</h1>
+            <div style="font-family: 'Inter', sans-serif; font-weight: 600; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px;">
+                Data Visualization Specialist
+            </div>
+            <p style="margin-bottom: 20px;">
+                Transforming complex data into clear, actionable narratives through intuitive visual design.
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;"> 
+                <a href="mailto:jason.m.donner@gmail.com" class="btn btn-primary">Get In Touch</a>
+                <a href="Resume.pdf" class="btn btn-secondary">Resume</a>
+                <a href="https://linkedin.com/in/jason-donner" class="btn btn-secondary">LinkedIn</a>
+            </div>
         </div>
-        <p style="max-width: 600px; margin: 0 auto 20px auto;">
-            Transforming complex data into clear, actionable narratives through intuitive visual design.
-        </p>
-        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-            <a href="mailto:jason.m.donner@gmail.com" class="btn btn-primary">Get In Touch</a>
-            <a href="Resume.pdf" class="btn btn-secondary">Resume</a>
-            <a href="https://linkedin.com/in/jason-donner" class="btn btn-secondary">LinkedIn</a>
+        <div class="monogram-box">
+            JD
         </div>
     </div>
+</div>
 
     <div class="bento-card span-12">
         <h2 class="section-header">Featured Analysis: The GLP-1 Divide</h2>
         
         <p style="max-width: 800px;">
-            Do new weight-loss drugs actually reach the people who need them? 
-            I built a Python pipeline to merge CDC obesity rates with Census data.
-            The result: An insightful dashboard revealing the massive affordability gap.
+            <strong>Question:</strong>Do new weight-loss drugs actually reach the people who need them?<br>
+            <strong>Solution:</strong> I built a Python pipeline to merge CDC obesity rates with Census data.<br>
+            <strong>Result:</strong> An insightful dashboard revealing the affordability gap Americans are currently facing.
         </p>
         
         <img src="assets/glp1-preview-2.png" alt="GLP-1 Analysis Preview" class="project-image">
@@ -360,8 +399,8 @@ title: Jason Donner | Data Visualization Specialist
     </div>
 
     <div class="bento-card-compact span-12" style="background-color: var(--text-main); color: #FFFDD0;">
-        <h2 style="color: #FFFDD0 !important; font-size: 1.5rem; font-family: 'Merriweather', serif;">Let's Work Together</h2>
-        <p style="color: #CCC; margin-bottom: 20px;">Open to analyst and visualization roles.</p>
+        <h2 style="color: #FFFFFF !important; font-size: 1.5rem; font-family: 'Merriweather', serif;">Let's Work Together</h2>
+        <p style="color: #acacac; margin-bottom: 20px;">Open to analyst and visualization roles.</p>
         <div style="font-size: 0.8rem; opacity: 0.6;">© 2025 Jason Donner</div>
     </div>
 
