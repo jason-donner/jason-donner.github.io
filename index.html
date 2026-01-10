@@ -1,361 +1,357 @@
----
-layout: default
-title: Jason Donner | Data Visualization Specialist
----
-
-<style>
-    /* =========================================
-       0. IMPORT FONTS
-       ========================================= */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@300;700;900&display=swap');
-
-    /* =========================================
-       1. GLOBAL VARIABLES
-       ========================================= */
-    :root {
-        --bg-color: #adadad;       
-        --card-bg: #FDFBF7;        
-        --accent-color: #D96C00; /* Burnt Orange */
-        --text-main: #2D2D2D;      
-        --text-muted: #5F5F5F;     
-        --border-color: rgba(0,0,0,0.08);
-        --border-radius: 6px;     
-        --gap: 20px; 
-    }
-
-    /* =========================================
-       2. BASE STYLES
-       ========================================= */
-    body {
-        background-color: var(--bg-color) !important;
-        color: var(--text-main) !important;
-        font-family: 'Inter', Helvetica, Arial, sans-serif;
-        margin: 0;
-        padding: 40px 20px;
-        line-height: 1.6;
-        position: relative;
-    }
-
-    /* BACKGROUND: RASTER IMAGE INVERSION TRICK */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        
-        /* Point this to where you saved the image */
-        background-image: url('/assets/topographic-map-background.png'); 
-        
-        background-size: 1080px auto;
-        
-        /* The CSS Trick: Invert + Multiply 
-        filter: invert(1) grayscale(1); 
-        mix-blend-mode: multiply;    */   
-        
-        opacity: 0.60; 
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    /* Hide Jekyll Defaults */
-    header, .site-header, .page-header, #header_wrap { display: none !important; }
-
-    /* =========================================
-       3. TYPOGRAPHY
-       ========================================= */
-    h1, h2, h3, h4 { 
-        color: var(--text-main) !important; 
-        margin-top: 0;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason Donner | Data Visualization Specialist</title>
     
-    h1 a, h2 a, h3 a, h4 a { color: inherit !important; text-decoration: none; }
+    <style>
+        /* =========================================
+           0. IMPORT FONTS
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@300;700;900&display=swap');
 
-    h1 {
-        font-family: 'Merriweather', serif;
-        font-weight: 900;
-        font-size: 2.5rem; 
-        letter-spacing: -1px;
-        margin-bottom: 10px;
-    }
+        /* =========================================
+           1. GLOBAL VARIABLES
+           ========================================= */
+        :root {
+            --bg-color: #adadad;       
+            --card-bg: #FDFBF7;        
+            --accent-color: #D96C00; /* Burnt Orange */
+            --text-main: #2D2D2D;      
+            --text-muted: #5F5F5F;     
+            --border-color: rgba(0,0,0,0.08);
+            --border-radius: 6px;     
+            --gap: 20px; 
+        }
 
-    /* SUBSTANTIAL HEADER STYLE */
-    .section-header {
-        font-family: 'Merriweather', serif;
-        font-size: 1.5rem;
-        font-weight: 800; 
-        color: var(--text-main);
-        margin-bottom: 20px;
-        padding-left: 16px; 
-        border-left: 6px solid var(--accent-color); 
-        line-height: 1.2;
-        display: block;
-    }
+        /* =========================================
+           2. BASE STYLES
+           ========================================= */
+        body {
+            background-color: var(--bg-color) !important;
+            color: var(--text-main) !important;
+            font-family: 'Inter', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+            position: relative;
+        }
 
-    h4 {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 5px;
-        font-family: 'Merriweather', serif; 
-    }
+        /* BACKGROUND: PRESERVED AS REQUESTED */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            
+            /* Point this to where you saved the image */
+            /* Note: Removed leading slash '/' to ensure it works on repo subdirectories */
+            background-image: url('assets/topographic-map-background.png'); 
+            
+            background-size: 1080px auto;
+            
+            /* Filters commented out as per your latest file */
+            /* filter: invert(1) grayscale(1); 
+            mix-blend-mode: multiply;   
+            */   
+            
+            opacity: 0.60; 
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    p {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-    }
+        /* Hide Jekyll Defaults (Just in case) */
+        header, .site-header, .page-header, #header_wrap { display: none !important; }
 
-    /* =========================================
-       4. GRID SYSTEM
-       ========================================= */
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: var(--gap);
-        max-width: 1100px; 
-        margin: 0 auto;
-    }
+        /* =========================================
+           3. TYPOGRAPHY
+           ========================================= */
+        h1, h2, h3, h4 { 
+            color: var(--text-main) !important; 
+            margin-top: 0;
+        }
+        
+        h1 a, h2 a, h3 a, h4 a { color: inherit !important; text-decoration: none; }
 
-    .span-12 { grid-column: span 12; }
-    .span-6  { grid-column: span 6; }
-    .span-4  { grid-column: span 4; } 
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-weight: 900;
+            font-size: 2.5rem; 
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
 
-    /* =========================================
-       5. CARDS
-       ========================================= */
-    .bento-card {
-        background: var(--card-bg);
-        border-radius: var(--border-radius);
-        padding: 30px; 
-        border: 1px solid var(--border-color);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between; 
-        height: 100%; 
-        box-sizing: border-box;
-    }
+        /* SUBSTANTIAL HEADER STYLE */
+        .section-header {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            font-weight: 800; 
+            color: var(--text-main);
+            margin-bottom: 20px;
+            padding-left: 16px; 
+            border-left: 6px solid var(--accent-color); 
+            line-height: 1.2;
+            display: block;
+        }
 
-    .bento-card-compact {
-        background: var(--card-bg);
-        border-radius: var(--border-radius);
-        padding: 25px 30px; 
-        border: 1px solid var(--border-color);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-        text-align: center;
-    }
+        h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-family: 'Merriweather', serif; 
+        }
 
-    .bento-card:hover, .bento-card-compact:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.06); 
-        border-color: rgba(0,0,0,0.15);
-        transition: all 0.2s ease;
-    }
+        p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-    /* =========================================
-       6. BUTTONS & LINKS
-       ========================================= */
-    .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px 20px;
-        border-radius: 4px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.2s;
-        font-size: 0.85rem;
-        cursor: pointer;
-        margin-right: 8px;
-    }
+        /* =========================================
+           4. GRID SYSTEM
+           ========================================= */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--gap);
+            max-width: 1100px; 
+            margin: 0 auto;
+        }
 
-    .btn-primary {
-        background-color: var(--text-main);
-        color: #FFF; 
-        border: 1px solid var(--text-main);
-    }
-    .btn-primary:hover {
-        background-color: #000;
-        transform: translateY(-1px);
-    }
+        .span-12 { grid-column: span 12; }
+        .span-6  { grid-column: span 6; }
+        .span-4  { grid-column: span 4; } 
 
-    .btn-secondary {
-        background-color: transparent;
-        color: var(--text-main) !important; 
-        border: 1px solid #CCC;
-    }
-    .btn-secondary:hover {
-        background-color: var(--text-main) !important; 
-        color: var(--bg-color) !important; 
-        border-color: var(--text-main);
-        transform: translateY(-1px);
-    }
-    
-    .text-link {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: 600;
-        border-bottom: 1px solid transparent;
-        transition: border 0.2s;
-    }
-    .text-link:hover { border-bottom-color: var(--accent-color); }
+        /* =========================================
+           5. CARDS
+           ========================================= */
+        .bento-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px; 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            height: 100%; 
+            box-sizing: border-box;
+        }
 
-    /* =========================================
-       7. COMPONENTS
-       ========================================= */
-    .project-image {
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
-        border: 1px solid rgba(0,0,0,0.1);
-        margin: 15px 0 20px 0; 
-    }
+        .bento-card-compact {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px 30px; 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            text-align: center;
+        }
 
-    .skill-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    
-    .skill-pill {
-        background: transparent;
-        padding: 4px 10px;
-        border: 1px solid rgba(0,0,0,0.15);
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: var(--text-main);
-    }
-    
-    .skill-pill-highlight {
-        background-color: var(--text-main);
-        color: #fff;
-        padding: 4px 10px;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
+        .bento-card:hover, .bento-card-compact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06); 
+            border-color: rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
 
-    .divider {
-        height: 1px;
-        background: #D96C00;
-        margin: 20px 0;
-        width: 100%;
-    }
+        /* =========================================
+           6. BUTTONS & LINKS
+           ========================================= */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-right: 8px;
+        }
 
-    /* =========================================
-       8. MOBILE
-       ========================================= */
-    @media (max-width: 900px) {
-        .bento-grid { display: flex; flex-direction: column; gap: 20px; }
-        .span-12, .span-6 { width: 100%; }
-        h1 { font-size: 2rem; }
-        body { padding: 20px 15px; }
-        .featured-footer { flex-direction: column; align-items: flex-start; gap: 15px; }
-    }
-    /* --- Add this inside your existing <style> tags --- */
+        .btn-primary {
+            background-color: var(--text-main);
+            color: #FFF; 
+            border: 1px solid var(--text-main);
+        }
+        .btn-primary:hover {
+            background-color: #000;
+            transform: translateY(-1px);
+        }
 
-.header-split {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    gap: 30px;
-}
-.header-content {
-    flex: 1;
-}
-.monogram-box {
-    width: 100px;
-    height: 100px;
-    background-color: var(--text-main);
-    color: var(--accent-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Merriweather', serif;
-    font-weight: 900;
-    font-size: 2.5rem;
-    flex-shrink: 0;
-    border: 4px solid var(--card-bg);
-    box-shadow: 0 0 0 2px var(--accent-color);
-}
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main) !important; 
+            border: 1px solid #CCC;
+        }
+        .btn-secondary:hover {
+            background-color: var(--text-main) !important; 
+            color: var(--bg-color) !important; 
+            border-color: var(--text-main);
+            transform: translateY(-1px);
+        }
+        
+        .text-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s;
+        }
+        .text-link:hover { border-bottom-color: var(--accent-color); }
 
-/* Mobile adjustment */
-@media (max-width: 600px) {
-    .header-split { flex-direction: column-reverse; text-align: center; }
-}
-/* --- Add inside <style> --- */
+        /* =========================================
+           7. COMPONENTS
+           ========================================= */
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.1);
+            margin: 15px 0 20px 0; 
+        }
 
-.analysis-grid {
-    display: grid;
-    /* Column 1 fits the label, Column 2 takes the rest */
-    grid-template-columns: max-content 1fr; 
-    /* Gap: 10px vertical between rows, 15px horizontal between label/text */
-    gap: 10px 15px; 
-    align-items: baseline; /* The secret sauce: aligns text baselines perfectly */
-    margin-bottom: 25px;
-    font-size: 0.95rem;
-}
+        .skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-pill {
+            background: transparent;
+            padding: 4px 10px;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        
+        .skill-pill-highlight {
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
 
-.analysis-label {
-    font-weight: 700;
-    color: var(--text-main);
-    border-bottom: 3px solid var(--accent-color);
-    line-height: 1.2;
-}
+        .divider {
+            height: 1px;
+            background: #D96C00;
+            margin: 20px 0;
+            width: 100%;
+        }
 
-.analysis-text {
-    color: var(--text-muted);
-    margin: 0;
-    line-height: 1.6;
-}
-</style>
+        /* HEADER MONOGRAM */
+        .header-split {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            gap: 30px;
+        }
+        .header-content { flex: 1; }
+        
+        .monogram-box {
+            width: 100px;
+            height: 100px;
+            background-color: var(--text-main);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Merriweather', serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        /* ANALYSIS GRID */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: max-content 1fr; 
+            gap: 10px 15px; 
+            align-items: baseline; 
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .analysis-label {
+            font-weight: 700;
+            color: var(--text-main);
+            border-bottom: 3px solid var(--accent-color);
+            line-height: 1.2;
+        }
+
+        .analysis-text {
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           8. MOBILE
+           ========================================= */
+        @media (max-width: 900px) {
+            .bento-grid { display: flex; flex-direction: column; gap: 20px; }
+            .span-12, .span-6 { width: 100%; }
+            h1 { font-size: 2rem; }
+            body { padding: 20px 15px; }
+            .featured-footer { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .header-split { flex-direction: column-reverse; text-align: center; }
+        }
+    </style>
+</head>
+<body>
 
 <div class="bento-grid">
 
     <div class="bento-card-compact span-12">
-    <div class="header-split">
-        <div class="header-content">
-            <h1 style="margin-bottom: 5px;">Jason Donner</h1>
-            <div style="font-family: 'Inter', sans-serif; font-weight: 600; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px;">
-                Data Visualization Specialist
+        <div class="header-split">
+            <div class="header-content">
+                <h1 style="margin-bottom: 5px;">Jason Donner</h1>
+                <div style="font-family: 'Inter', sans-serif; font-weight: 600; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px;">
+                    Data Visualization Specialist
+                </div>
+                <p style="margin-bottom: 20px;">
+                    5+ years of experience transforming raw data into business intelligence. I build high-performance data pipelines and intuitive dashboards that drive executive decision-making.
+                </p>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"> <a href="mailto:jason.m.donner@gmail.com" class="btn btn-primary">Get In Touch</a>
+                    <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Resume</a>
+                    <a href="https://linkedin.com/in/jason-donner" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+                </div>
             </div>
-            <p style="margin-bottom: 20px;">
-                5+ years of experience transforming raw data into business intelligence. I build high-performance data pipelines and intuitive dashboards that drive executive decision-making.
-            </p>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;"> 
-                <a href="mailto:jason.m.donner@gmail.com" class="btn btn-primary">Get In Touch</a>
-                <a href="Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" >Resume</a>
-                <a href="https://linkedin.com/in/jason-donner" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+            <div class="monogram-box">
+                JD
             </div>
-        </div>
-        <div class="monogram-box">
-            JD
         </div>
     </div>
-</div>
 
     <div class="bento-card span-12">
         <h2 class="section-header">Featured Analysis: The GLP-1 Divide</h2>
         
         <div class="analysis-grid">
-    
-    <div class="analysis-label">Challenge:</div>
-    <div class="analysis-text">
-        Do new weight-loss drugs actually reach the people who need them most?
-    </div>
+            <div class="analysis-label">Challenge:</div>
+            <div class="analysis-text">
+                Do new weight-loss drugs actually reach the people who need them most?
+            </div>
 
-    <div class="analysis-label">Solution:</div>
-    <div class="analysis-text">
-        I built a Python pipeline to merge CDC obesity rates with Census data, then visualized the output in Tableau.
-    </div>
+            <div class="analysis-label">Solution:</div>
+            <div class="analysis-text">
+                I built a Python pipeline to merge CDC obesity rates with Census data, then visualized the output in Tableau.
+            </div>
 
-    <div class="analysis-label">Impact:</div>
-    <div class="analysis-text">
-        Engineered a Python (Pandas) ETL pipeline to synthesize disparate CDC and Census datasets, feeding into a custom-built Tableau interface designed for intuitive exploration of the GLP-1 availability gap.
-    </div>
-
-    </div>
+            <div class="analysis-label">Impact:</div>
+            <div class="analysis-text">
+                Engineered a Python (Pandas) ETL pipeline to synthesize disparate CDC and Census datasets, feeding into a custom-built Tableau interface designed for intuitive exploration of the GLP-1 availability gap.
+            </div>
+        </div>
         
         <img src="assets/glp1-preview-2.png" alt="GLP-1 Analysis Preview" class="project-image">
 
@@ -385,7 +381,8 @@ title: Jason Donner | Data Visualization Specialist
         <h4 style="margin-bottom:8px; opacity:0.8;">Stack</h4>
         <div class="skill-container" style="margin-bottom: 20px;">
             <span class="skill-pill-highlight">Tableau</span>
-            <span class="skill-pill">Power BI</span> <span class="skill-pill">Python</span>
+            <span class="skill-pill">Power BI</span> 
+            <span class="skill-pill">Python</span>
             <span class="skill-pill">SQL</span>
             <span class="skill-pill">Pandas</span>
             <span class="skill-pill">GitHub</span>
@@ -397,7 +394,8 @@ title: Jason Donner | Data Visualization Specialist
 
         <h4 style="margin-bottom:8px; opacity:0.8;">Core Competencies</h4>
         <div class="skill-container">
-            <span class="skill-pill-highlight">Data Storytelling</span> <span class="skill-pill">Stakeholder Management</span>
+            <span class="skill-pill-highlight">Data Storytelling</span> 
+            <span class="skill-pill">Stakeholder Management</span>
             <span class="skill-pill">Dashboard UI/UX</span>
             <span class="skill-pill">Requirement Gathering</span>
             <span class="skill-pill">Process Automation</span>
@@ -443,3 +441,6 @@ title: Jason Donner | Data Visualization Specialist
     </div>
 
 </div>
+
+</body>
+</html>
