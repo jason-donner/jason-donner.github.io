@@ -43,18 +43,14 @@
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            
-            /* Note: Removed leading slash '/' to ensure it works on repo subdirectories */
             background-image: url('assets/topographic-map-background.png'); 
-            
             background-size: 1080px auto;
-            
             opacity: 0.60; 
             pointer-events: none;
             z-index: -1;
         }
 
-        /* Hide Jekyll Defaults */
+        /* Hide Jekyll Defaults (Just in case) */
         header, .site-header, .page-header, #header_wrap { display: none !important; }
 
         /* =========================================
@@ -329,43 +325,46 @@
     </div>
 
     <div class="bento-card span-12">
-        <h2 class="section-header">Featured Analysis: The GLP-1 Divide</h2>
+        <h2 class="section-header">Featured Analysis: Loyalty Loop ROI Analytics</h2>
         
         <div class="analysis-grid">
-            <div class="analysis-label">Challenge:</div>
+            <div class="analysis-label">Business Context:</div>
             <div class="analysis-text">
-                Do new weight-loss drugs actually reach the people who need them most?
+                A retail grocery operation required visibility into customer churn risk and marketing effectiveness but lacked a scalable data architecture to support granular analysis.
+            </div>
+
+            <div class="analysis-label">Technical Challenge:</div>
+            <div class="analysis-text">
+                To solve this, the initial Version 1.0 data pipeline utilized a monthly snapshot fact table for a 2.5M row dataset (Dunnhumby). At scale, this caused Cartesian products and filter context collisions, resulting in data inaccuracies.
             </div>
 
             <div class="analysis-label">Solution:</div>
             <div class="analysis-text">
-                I built a Python pipeline to merge CDC obesity rates with Census data, then visualized the output in Tableau.
+                Refactored the Python pipeline to output a strict one to many star schema utilizing a dim_customer_current table (Version 2.0). This eliminated filter collisions and optimized the data model for operational drillthroughs. Standardized strictly on Gross Sales by eradicating 25,000+ non merchandise anomalies.
             </div>
 
-            <div class="analysis-label">Impact:</div>
+            <div class="analysis-label">Business Impact:</div>
             <div class="analysis-text">
-                Engineered a Python (Pandas) ETL pipeline to synthesize disparate CDC and Census datasets, feeding into a custom-built Tableau interface designed for intuitive exploration of the GLP-1 availability gap.
+                Uncovered $250K+ in at risk Gross Sales hidden by standard industry churn metrics. Applied Difference in Differences (DiD) control group methodologies to prove mass marketing drove +14% net incremental lift, while complex personalized campaigns cannibalized Gross Sales, resulting in a negative net lift.
             </div>
         </div>
         
-        <img src="assets/glp1-preview-2.png" alt="GLP-1 Analysis Preview" class="project-image">
+        <img src="assets/page-1-overview.png" alt="Loyalty Loop Analysis Preview" class="project-image">
 
         <div class="featured-footer" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
             <div style="display: flex; gap: 10px;">
-                <a href="https://public.tableau.com/views/GLP-1EquityAnalysisDashboard/GLP-1EquityAnalysis" target="_blank" class="btn btn-primary">
-                    View Dashboard
-                </a>
-                <a href="https://github.com/jason-donner/glp1_access_project" target="_blank" class="btn btn-secondary">
-                    View Code
+                <a href="https://github.com/jason-donner/loyalty-loop-dashboard" target="_blank" class="btn btn-primary">
+                    View Case Study & Code
                 </a>
             </div>
             
             <div class="skill-container" style="align-items: center;">
                 <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-right: 5px;">STACK:</span>
-                <span class="skill-pill-highlight">Tableau</span>
+                <span class="skill-pill-highlight">Power BI</span>
+                <span class="skill-pill">DAX</span>
                 <span class="skill-pill">Python</span>
-                <span class="skill-pill">ETL</span>
                 <span class="skill-pill">Pandas</span>
+                <span class="skill-pill">Data Modeling</span>
             </div>
         </div>
     </div>
@@ -418,12 +417,14 @@
             <div class="divider"></div>
 
             <div>
-                <h4>Sales Performance KPI</h4>
+                <h4>GLP-1 Equity Analysis</h4>
                 <p style="font-size: 0.9rem; margin-bottom: 8px;">
-                    Automated reporting for regional sales metrics.
+                    Python ETL pipeline merging CDC obesity and Census data to visualize drug availability gaps.
                 </p>
                 <div style="font-size: 0.85rem;">
-                    <span style="color: var(--text-muted); font-style: italic;">Coming Soon</span>
+                    <a href="https://public.tableau.com/views/GLP-1EquityAnalysisDashboard/GLP-1EquityAnalysis" target="_blank" class="text-link">Tableau Dashboard</a>
+                     &nbsp;•&nbsp; 
+                    <a href="https://github.com/jason-donner/glp1_access_project" target="_blank" class="text-link">View Code</a>
                 </div>
             </div>
         </div>
@@ -432,7 +433,7 @@
     <div class="bento-card-compact span-12" style="background-color: var(--text-main); color: #FFFDD0;">
         <h2 style="color: #FFFFFF !important; font-size: 1.5rem; font-family: 'Merriweather', serif;">Let's Work Together</h2>
         <p style="color: #acacac; margin-bottom: 20px;">Available for Data Analyst & BI Development opportunities.</p>
-        <div style="font-size: 0.8rem; opacity: 0.6;">© 2025 Jason Donner</div>
+        <div style="font-size: 0.8rem; opacity: 0.6;">© 2026 Jason Donner</div>
     </div>
 
 </div>
